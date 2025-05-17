@@ -13,7 +13,7 @@ const initialNodes = [
     data: {
       label: 'Incoming Call',
     },
-    parentId: 'root-node',
+    // parentId: 'root-node',
     width: 100,
     height: 47,
     x: 177,
