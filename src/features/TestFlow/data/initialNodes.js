@@ -1,5 +1,24 @@
 const initialNodes = [
   {
+    id: 'root-node',  // Add this root node
+    position: {
+      x: 0,
+      y: 0,
+    },
+    type: 'group',  // Using group type for parent nodes
+    data: {
+      label: 'Root',
+    },
+    style: {
+      opacity: 0,
+      backgroundColor: 'transparent',
+      border: 'none',
+      width:0,
+      height:0,
+      zIndex: -1
+    },
+  },
+  {
     id: 'incomingCall',
     defaultPosition: {
       x: 30,
@@ -13,7 +32,7 @@ const initialNodes = [
     data: {
       label: 'Incoming Call',
     },
-    // parentId: 'root-node',
+    parentId: 'root-node',
     width: 100,
     height: 47,
     x: 177,

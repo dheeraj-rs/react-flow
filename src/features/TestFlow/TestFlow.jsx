@@ -2,59 +2,71 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-promise-executor-return */
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState, useMemo } from 'react';
-import { useFormik } from 'formik';
-import ReactDOM from 'react-dom';
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useMemo,
+} from "react";
+import { useFormik } from "formik";
+import ReactDOM from "react-dom";
 import ReactFlow, {
   ReactFlowProvider,
   useEdgesState,
   useNodesState,
   useReactFlow,
-} from 'reactflow';
-import { v4 as uuidv4 } from 'uuid';
-import { useParams } from 'react-router-dom';
-import Layout from '../../common/layout';
-import initialNodes from './data/initialNodes';
-import customNodeTypes from './data/customNodeTypes';
-import initialEdges from './data/initialEdges';
-import ComponentSelectPopup from '../CommVoiceAdmin/components/modals/ComponentSelectPopup';
-import useStore from '../Test/store';
-import { handleDeleteNode, handleRemoveConnection } from './actions';
-import edgeAttributes from './data/edgeAttributes';
-import Modals from './components/Modals';
-import { ListVoiceCategory } from '../../common/api-collection/Telephony/VoiceCategory';
-import { ListAllVoiceLibrary } from '../../common/api-collection/Telephony/VoiceLibrary';
-import Audio from './components/Audio';
-import { ListAgents } from '../../common/api-collection/TenantAdmin/Agents';
-import { ListDepartments } from '../../common/api-collection/Department';
-import { ListAllApiLibrary } from '../../common/api-collection/Telephony/ApiLibrary';
-import { customLayout, getMinHeight } from './actions/flow-actions';
+} from "reactflow";
+import { v4 as uuidv4 } from "uuid";
+import { useParams } from "react-router-dom";
+import Layout from "../../common/layout";
+import initialNodes from "./data/initialNodes";
+import customNodeTypes from "./data/customNodeTypes";
+import initialEdges from "./data/initialEdges";
+import ComponentSelectPopup from "../CommVoiceAdmin/components/modals/ComponentSelectPopup";
+import useStore from "../Test/store";
+import { handleDeleteNode, handleRemoveConnection } from "./actions";
+import edgeAttributes from "./data/edgeAttributes";
+import Modals from "./components/Modals";
+import { ListVoiceCategory } from "../../common/api-collection/Telephony/VoiceCategory";
+import { ListAllVoiceLibrary } from "../../common/api-collection/Telephony/VoiceLibrary";
+import Audio from "./components/Audio";
+import { ListAgents } from "../../common/api-collection/TenantAdmin/Agents";
+import { ListDepartments } from "../../common/api-collection/Department";
+import { ListAllApiLibrary } from "../../common/api-collection/Telephony/ApiLibrary";
+import { customLayout, getMinHeight } from "./actions/flow-actions";
 import {
   GetCallFlow,
   ListCallFlowsListWithoutPagination,
   PublishCallFlow,
   UnpublishCallFlow,
   UpdateCallFlow,
-} from '../../common/api-collection/Telephony/CallFlow';
-import { ListAgentAvailabilitiesWithoutPagination } from '../../common/api-collection/Telephony/AgentAvailability';
-import SMSSenderID, { activeEdgeColor } from './data/data';
-import SpinningLoader from '../../common/components/Loader/SpinningLoader';
-import ToastSuccess from '../../common/components/toast/ToastSucess';
-import ToastError from '../../common/components/toast/ToastError';
-import Subhead from './Subhead';
-import TestFlowModal from './TestFlowModal';
-import { getNodeDetails } from '../../common/helpers/utils';
-import { updateShortcutEdges, updateIVRMenuEdges, updatePassthruEdges } from './actions/update';
-import CallFlowsFitScreen from './components/CallFlowsFitScreen';
-import CallFlowsZoomIn from './components/CallFlowsZoomIn';
-import CallFlowsZoomOut from './components/CallFlowsZoomOut';
-import CallFlowsResetZoom from './components/CallFlowsResetZoom';
-import CallFlowsAutoArrange from './components/CallFlowsAutoArrange';
-import CallFlowsRedo from './components/CallFlowsRedo';
-import CallFlowsUndo from './components/CallFlowsUndo';
-import { ListAllComponents } from '../../common/api-collection/Telephony/Components';
-import { ListCallerList } from '../../common/api-collection/Telephony/CallerList';
-import ActionButtons from './components/ActionButtons';
+} from "../../common/api-collection/Telephony/CallFlow";
+import { ListAgentAvailabilitiesWithoutPagination } from "../../common/api-collection/Telephony/AgentAvailability";
+import SMSSenderID, { activeEdgeColor } from "./data/data";
+import SpinningLoader from "../../common/components/Loader/SpinningLoader";
+import ToastSuccess from "../../common/components/toast/ToastSucess";
+import ToastError from "../../common/components/toast/ToastError";
+import Subhead from "./Subhead";
+import TestFlowModal from "./TestFlowModal";
+import { getNodeDetails } from "../../common/helpers/utils";
+import {
+  updateShortcutEdges,
+  updateIVRMenuEdges,
+  updatePassthruEdges,
+} from "./actions/update";
+import CallFlowsFitScreen from "./components/CallFlowsFitScreen";
+import CallFlowsZoomIn from "./components/CallFlowsZoomIn";
+import CallFlowsZoomOut from "./components/CallFlowsZoomOut";
+import CallFlowsResetZoom from "./components/CallFlowsResetZoom";
+import CallFlowsAutoArrange from "./components/CallFlowsAutoArrange";
+import CallFlowsRedo from "./components/CallFlowsRedo";
+import CallFlowsUndo from "./components/CallFlowsUndo";
+import { ListAllComponents } from "../../common/api-collection/Telephony/Components";
+import { ListCallerList } from "../../common/api-collection/Telephony/CallerList";
+import ActionButtons from "./components/ActionButtons";
+import { handleListVendorDummyComponents } from "./data/SampleData";
 
 const MIN_ZOOM = 0.05;
 const MAX_ZOOM = 3;
@@ -85,30 +97,35 @@ function TestFlows() {
     setSelectedNode,
     setActiveNodeId,
   } = useStore();
-  const [callFlowDetails, setCallFlowDetails] = useState({ isLoading: true, data: {} });
-  const [vendorComponents, setVendorComponents] = useState([]);
-  const [search, setSearch] = useState('');
+  const [callFlowDetails, setCallFlowDetails] = useState({
+    isLoading: true,
+    data: {},
+  });
+  const [vendorComponents, setVendorComponents] = useState(
+    handleListVendorDummyComponents?.data || []
+  );
+  const [search, setSearch] = useState("");
   const [componentsloading, setComponentsloading] = useState(false);
   const [iVRSearchResult, setIVRSearchResult] = useState([]);
   const [availableIVRMenus, setAvailableIVRMenus] = useState([]);
   const [active, setActive] = useState({
     state: true,
-    type: '',
-    categoryName: '',
-    categoryId: '5',
-    fileName: '',
+    type: "",
+    categoryName: "",
+    categoryId: "5",
+    fileName: "",
     fileId: 1,
   });
   const [selectedVoice, setSelectedVoice] = useState({
-    id: 'select',
-    parentType: '',
-    url: '',
+    id: "select",
+    parentType: "",
+    url: "",
     isVoicePalying: false,
   });
   const [toastAction, setToastAction] = useState({
     isVisible: false,
-    type: '',
-    message: '',
+    type: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);
@@ -122,13 +139,18 @@ function TestFlows() {
   const [callFlows, setCallFlows] = useState([]);
   const [agentAvailabilities, setAgentAvailabilities] = useState([]);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges] = useEdgesState(initialEdges?.map((e) => ({ ...e, hovered: false })));
+  const [edges, setEdges] = useEdgesState(
+    initialEdges?.map((e) => ({ ...e, hovered: false }))
+  );
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [isUpdateNode, setIsUpdateNode] = useState(false);
   const [isResetZoomEnabled, setIsResetZoomEnabled] = useState(false);
   const [isCustomLayoutReady, setIsCustomLayoutReady] = useState(false);
   const [isFlowVisible, setIsFlowVisible] = useState(false);
-  const [lastAddedNode, setLastAddedNode] = useState({ nodeId: null, edgeId: null });
+  const [lastAddedNode, setLastAddedNode] = useState({
+    nodeId: null,
+    edgeId: null,
+  });
   const [flowHistory, setFlowHistory] = useState([]);
   const [flowHistoryIndex, setFlowHistoryIndex] = useState(-1);
   const [flowRefreshKey, setFlowRefreshKey] = useState(false);
@@ -138,7 +160,7 @@ function TestFlows() {
   const formik = useFormik({
     initialValues: {
       isEditing: false,
-      callFlowName: '',
+      callFlowName: "",
     },
     validate: () => ({}),
     onSubmit: () => {},
@@ -158,7 +180,7 @@ function TestFlows() {
         connections: edgesArray,
       };
       const data = {
-        type: 'telephony_call-flow',
+        type: "telephony_call-flow",
         id: params?.id,
         attributes: {
           name: callFlowDetails?.data?.attributes?.name,
@@ -170,8 +192,8 @@ function TestFlows() {
       } catch (error) {
         setToastAction({
           isVisible: true,
-          type: 'failed',
-          message: 'Error updating call flow. Please try again.',
+          type: "failed",
+          message: "Error updating call flow. Please try again.",
         });
       }
     },
@@ -192,8 +214,12 @@ function TestFlows() {
             return {
               ...startNode,
               position: {
-                x: startNode.position.x + (endNode.position.x - startNode.position.x) * progress,
-                y: startNode.position.y + (endNode.position.y - startNode.position.y) * progress,
+                x:
+                  startNode.position.x +
+                  (endNode.position.x - startNode.position.x) * progress,
+                y:
+                  startNode.position.y +
+                  (endNode.position.y - startNode.position.y) * progress,
               },
             };
           });
@@ -218,13 +244,15 @@ function TestFlows() {
   const handleRightClick = useCallback(
     (event) => {
       event?.preventDefault();
-      setActiveNodesDetails({ sourceId: '', targetId: '' });
+      setActiveNodesDetails({ sourceId: "", targetId: "" });
       setSelectedEdge({});
       setActiveEdgeId(null);
       setActiveNodeId(null);
       setSelectedNode({});
       setLastAddedNode({ nodeId: null, edgeId: null });
-      setEdges((prevEdges) => prevEdges?.map((e) => ({ ...e, style: edgeAttributes })));
+      setEdges((prevEdges) =>
+        prevEdges?.map((e) => ({ ...e, style: edgeAttributes }))
+      );
     },
     [
       setActiveEdgeId,
@@ -241,13 +269,15 @@ function TestFlows() {
     (nodesArray, data) => {
       const id = uuidv4();
       let edge;
-      if (show?.prevNodeId === 'incoming-call') {
+      if (show?.prevNodeId === "incoming-call") {
         edge = {
           id: `edge-${id}`,
           source: show?.prevNodeId,
-          sourceHandle: 'incomingCall',
+          sourceHandle: "incomingCall",
           target: nodesArray[nodesArray.length - 1]?.id,
-          targetHandle: `${data?.type}:target:${nodesArray[nodesArray.length - 1]?.id}`,
+          targetHandle: `${data?.type}:target:${
+            nodesArray[nodesArray.length - 1]?.id
+          }`,
           targetType: data?.type,
           type: edgeAttributes?.type,
           style: edgeAttributes,
@@ -260,7 +290,9 @@ function TestFlows() {
           source: show?.prevNodeId,
           sourceHandle: `${show?.targetType}:source:${show?.prevNodeId}`,
           target: nodesArray[nodesArray.length - 1]?.id,
-          targetHandle: `${data?.type}:target:${nodesArray[nodesArray.length - 1]?.id}`,
+          targetHandle: `${data?.type}:target:${
+            nodesArray[nodesArray.length - 1]?.id
+          }`,
           targetType: data?.type,
           type: edgeAttributes?.type,
           style: edgeAttributes,
@@ -311,15 +343,22 @@ function TestFlows() {
       nine: 9,
       hash: 10,
       star: 11,
-      'customer-not-responded': 12,
-      'customer-gives-wrong-input': 13,
+      "customer-not-responded": 12,
+      "customer-gives-wrong-input": 13,
     };
 
-    const match = input?.match(/(input-\w+|customer-not-responded|customer-gives-wrong-input)/);
+    const match = input?.match(
+      /(input-\w+|customer-not-responded|customer-gives-wrong-input)/
+    );
     if (match) {
-      const key = match[1]?.startsWith('input-') ? match[1]?.slice(6) : match[1];
+      const key = match[1]?.startsWith("input-")
+        ? match[1]?.slice(6)
+        : match[1];
       if (numberMapping?.hasOwnProperty(key)) {
-        if (key === 'customer-not-responded' || key === 'customer-gives-wrong-input') {
+        if (
+          key === "customer-not-responded" ||
+          key === "customer-gives-wrong-input"
+        ) {
           return numberMapping[key];
         }
         return numberMapping[key] - 1;
@@ -338,21 +377,25 @@ function TestFlows() {
 
       // Calculate sourceIndex
       let sourceIndex = 0;
-      if (sourceNode?.type === 'ivr-menu') {
+      if (sourceNode?.type === "ivr-menu") {
         sourceIndex = getInputNumber(connection?.sourceHandle) ?? 0;
       } else {
-        const match = connection?.sourceHandle?.match(/(input-\w+|wrong-input|no-input)/);
+        const match = connection?.sourceHandle?.match(
+          /(input-\w+|wrong-input|no-input)/
+        );
         if (match) {
-          const key = match[1]?.startsWith('input-') ? match[1]?.slice(6) : match[1];
+          const key = match[1]?.startsWith("input-")
+            ? match[1]?.slice(6)
+            : match[1];
           const keyIndex = sourceNode?.details?.keyList?.findIndex(
             (k) => parseInt(k, 10) === parseInt(key, 10)
           );
 
           if (keyIndex !== -1) {
             sourceIndex = keyIndex;
-          } else if (key === 'wrong-input') {
+          } else if (key === "wrong-input") {
             sourceIndex = 56;
-          } else if (key === 'no-input') {
+          } else if (key === "no-input") {
             sourceIndex = 55;
           }
         }
@@ -364,7 +407,10 @@ function TestFlows() {
           return {
             ...node,
             sourceIndex,
-            parentId: connection?.source === 'incomingCall' ? 'incomingCall' : connection?.source, // Set parentId to source node's id
+            parentId:
+              connection?.source === "incomingCall"
+                ? "incomingCall"
+                : connection?.source, // Set parentId to source node's id
           };
         }
         return node;
@@ -372,12 +418,17 @@ function TestFlows() {
 
       edge = {
         id: `edge-${id}`,
-        source: connection?.source === 'incomingCall' ? 'incomingCall' : connection?.source,
+        source:
+          connection?.source === "incomingCall"
+            ? "incomingCall"
+            : connection?.source,
         sourceHandle:
-          connection?.source === 'incomingCall' ? 'incomingCall' : connection?.sourceHandle,
+          connection?.source === "incomingCall"
+            ? "incomingCall"
+            : connection?.sourceHandle,
         target: connection?.target,
         targetHandle: connection?.targetHandle,
-        targetType: connection?.targetHandle?.split(':')[0],
+        targetType: connection?.targetHandle?.split(":")[0],
         type: edgeAttributes?.type,
         style: edgeAttributes,
         sourceIndex,
@@ -385,8 +436,8 @@ function TestFlows() {
 
       setEdges((prevEdges) => {
         let updatedEdges = [...prevEdges, edge];
-        if (edge?.source === 'incomingCall') {
-          updatedEdges = prevEdges?.filter((e) => e?.id !== 'incoming-call');
+        if (edge?.source === "incomingCall") {
+          updatedEdges = prevEdges?.filter((e) => e?.id !== "incoming-call");
           updatedEdges?.push(edge);
         } else {
           updatedEdges = [...prevEdges, edge];
@@ -417,7 +468,13 @@ function TestFlows() {
 
   const updateEdgesArray = useCallback(
     async (nodeDetails, updatedDetails) => {
-      updateShortcutEdges(setEdges, setFlowEdges, nodeDetails, updatedDetails, edges);
+      updateShortcutEdges(
+        setEdges,
+        setFlowEdges,
+        nodeDetails,
+        updatedDetails,
+        edges
+      );
       updateIVRMenuEdges(setEdges, nodeDetails, updatedDetails, edges);
       updatePassthruEdges(setEdges, nodeDetails, updatedDetails, edges);
       setFlowRefreshKey((prevKey) => prevKey + 1);
@@ -427,8 +484,8 @@ function TestFlows() {
 
   const calculateNodeDimensions = useMemo(
     () =>
-      (node, type = 'height') => {
-        if (!node) return type === 'minHeight' ? 45 : 175;
+      (node, type = "height") => {
+        if (!node) return type === "minHeight" ? 45 : 175;
         const baseHeight = node.height || 45;
         const baseWidth = node.width || 250;
         const counts = {
@@ -440,7 +497,7 @@ function TestFlows() {
           (counts.shortcut > 1 ? 45 * counts.shortcut : 0) +
           (counts.ivr > 1 ? 95 * counts.ivr : 0) +
           (counts.callerList > 1 ? 62 * counts.callerList : 0);
-        return type === 'height' ? baseHeight + additionalHeight : baseWidth;
+        return type === "height" ? baseHeight + additionalHeight : baseWidth;
       },
     []
   );
@@ -457,15 +514,16 @@ function TestFlows() {
     };
 
     const safetyMargin = VIEWPORT_CONSTANTS.SAFETY_MARGIN;
-    const nodeWidth = calculateNodeDimensions(node, 'width');
-    const nodeHeight = calculateNodeDimensions(node, 'height');
+    const nodeWidth = calculateNodeDimensions(node, "width");
+    const nodeHeight = calculateNodeDimensions(node, "height");
     let newX = flowPosition?.x || 0;
     let newY = flowPosition?.y || 0;
 
     if (result?.isOutOfViewX && result?.overflowNodeDirection.right) {
       const screenCenterX = containerRef.current.clientWidth / 2;
       const horizontalOffset =
-        containerRef.current.clientWidth * VIEWPORT_CONSTANTS.HORIZONTAL_OFFSET_FACTOR;
+        containerRef.current.clientWidth *
+        VIEWPORT_CONSTANTS.HORIZONTAL_OFFSET_FACTOR;
       newX =
         -(node.position.x * zoom) +
         screenCenterX -
@@ -476,7 +534,8 @@ function TestFlows() {
     if (result?.isOutOfViewY && result?.overflowNodeDirection.bottom) {
       const screenCenterY = containerRef.current.clientHeight / 2;
       const verticalOffset =
-        containerRef.current.clientHeight * VIEWPORT_CONSTANTS.VERTICAL_OFFSET_FACTOR;
+        containerRef.current.clientHeight *
+        VIEWPORT_CONSTANTS.VERTICAL_OFFSET_FACTOR;
       newY =
         -(node.position.y * zoom) +
         screenCenterY -
@@ -510,23 +569,30 @@ function TestFlows() {
       isInView: false,
       isOutOfViewX: false,
       isOutOfViewY: false,
-      overflowDirection: { left: false, right: false, top: false, bottom: false },
+      overflowDirection: {
+        left: false,
+        right: false,
+        top: false,
+        bottom: false,
+      },
       errors: [],
     };
 
     // Validate required dependencies
     const errors = [];
-    if (!node) errors.push('Node is required');
-    if (!reactFlowInstance) errors.push('ReactFlow instance is required');
-    if (!containerRef?.current) errors.push('Container reference is required');
+    if (!node) errors.push("Node is required");
+    if (!reactFlowInstance) errors.push("ReactFlow instance is required");
+    if (!containerRef?.current) errors.push("Container reference is required");
     if (errors.length > 0) {
       return { ...DEFAULT_RESPONSE, errors };
     }
 
     // Validate node structure
     const validNode = {
-      width: node.width > 0 ? node.width : VIEWPORT_CONSTANTS.DEFAULT_NODE.width,
-      height: node.height > 0 ? node.height : VIEWPORT_CONSTANTS.DEFAULT_NODE.height,
+      width:
+        node.width > 0 ? node.width : VIEWPORT_CONSTANTS.DEFAULT_NODE.width,
+      height:
+        node.height > 0 ? node.height : VIEWPORT_CONSTANTS.DEFAULT_NODE.height,
       position: {
         x: node.position?.x ?? VIEWPORT_CONSTANTS.DEFAULT_NODE.position.x,
         y: node.position?.y ?? VIEWPORT_CONSTANTS.DEFAULT_NODE.position.y,
@@ -535,13 +601,18 @@ function TestFlows() {
 
     // Get viewport information
     const flowPosition = reactFlowInstance.getViewport();
-    const zoom = Math.max(VIEWPORT_CONSTANTS.MIN_ZOOM, reactFlowInstance.getZoom());
+    const zoom = Math.max(
+      VIEWPORT_CONSTANTS.MIN_ZOOM,
+      reactFlowInstance.getZoom()
+    );
 
     // Screen dimensions with padding
     const screenWidth =
-      containerRef.current.clientWidth - VIEWPORT_CONSTANTS.SCREEN_PADDING.horizontal * 2;
+      containerRef.current.clientWidth -
+      VIEWPORT_CONSTANTS.SCREEN_PADDING.horizontal * 2;
     const screenHeight =
-      containerRef.current.clientHeight - VIEWPORT_CONSTANTS.SCREEN_PADDING.vertical * 2;
+      containerRef.current.clientHeight -
+      VIEWPORT_CONSTANTS.SCREEN_PADDING.vertical * 2;
 
     // Calculate safety margin based on zoom level
     const zoomAdjustedMargin = Math.min(
@@ -568,8 +639,12 @@ function TestFlows() {
     };
 
     // Determine if node is out of view with adjusted bounds
-    const isOutOfViewX = nodeBounds.minX < screenBounds.minX || nodeBounds.maxX > screenBounds.maxX;
-    const isOutOfViewY = nodeBounds.minY < screenBounds.minY || nodeBounds.maxY > screenBounds.maxY;
+    const isOutOfViewX =
+      nodeBounds.minX < screenBounds.minX ||
+      nodeBounds.maxX > screenBounds.maxX;
+    const isOutOfViewY =
+      nodeBounds.minY < screenBounds.minY ||
+      nodeBounds.maxY > screenBounds.maxY;
 
     // Determine overflow direction
     const overflowNodeDirection = {
@@ -640,7 +715,7 @@ function TestFlows() {
           const nodeHeight =
             node.type === selectNode.type
               ? node.height || node.minHeight || 185
-              : calculateNodeDimensions(node, 'minHeight');
+              : calculateNodeDimensions(node, "minHeight");
 
           return {
             ...acc,
@@ -704,15 +779,21 @@ function TestFlows() {
         zoom,
       };
 
-      const horizontalOffset = containerRef.current.clientWidth * HORIZONTAL_OFFSET_FACTOR;
-      const verticalOffset = containerRef.current.clientHeight * VERTICAL_OFFSET_FACTOR;
+      const horizontalOffset =
+        containerRef.current.clientWidth * HORIZONTAL_OFFSET_FACTOR;
+      const verticalOffset =
+        containerRef.current.clientHeight * VERTICAL_OFFSET_FACTOR;
 
       // Adjust horizontal position if width decreased
       if (widthDecrease > 0) {
         const wasOnRightSide =
-          selectNode.position.x > (currentBounds.left + currentBounds.right) / 2;
+          selectNode.position.x >
+          (currentBounds.left + currentBounds.right) / 2;
         if (wasOnRightSide) {
-          const potentialX = newPosition.x + widthDecrease * ADJUSTMENT_FACTOR + horizontalOffset;
+          const potentialX =
+            newPosition.x +
+            widthDecrease * ADJUSTMENT_FACTOR +
+            horizontalOffset;
           const flowLeftEdge = -newBounds.left * zoom + potentialX;
           newPosition.x =
             flowLeftEdge <= MIN_LEFT_PADDING
@@ -729,10 +810,13 @@ function TestFlows() {
         const wasOnBottom = nodeVerticalCenter > flowCenterY;
 
         if (wasOnBottom) {
-          const potentialY = newPosition.y + heightDecrease * ADJUSTMENT_FACTOR + verticalOffset;
+          const potentialY =
+            newPosition.y + heightDecrease * ADJUSTMENT_FACTOR + verticalOffset;
           const flowTopEdge = -newBounds.top * zoom + potentialY;
           newPosition.y =
-            flowTopEdge <= MIN_TOP_PADDING ? potentialY : MIN_TOP_PADDING + newBounds.top * zoom;
+            flowTopEdge <= MIN_TOP_PADDING
+              ? potentialY
+              : MIN_TOP_PADDING + newBounds.top * zoom;
         }
       }
 
@@ -755,7 +839,7 @@ function TestFlows() {
         prevNodeId: data?.prevNodeId,
         prevHandleId: data?.prevHandleId,
         position: { x: 0, y: 0 },
-        parentId: selectedNode?.nodeId || '',
+        parentId: selectedNode?.nodeId || "",
         childrens: [],
         sourceIndex: selectedNode?.sourceIndex,
         minHeight: getMinHeight(data?.type, data),
@@ -773,30 +857,34 @@ function TestFlows() {
 
       const addNodeAndArrange = async (existingNodes) => {
         try {
-          const parentNode = existingNodes?.find((node) => node?.id === data?.prevNodeId);
+          const parentNode = existingNodes?.find(
+            (node) => node?.id === data?.prevNodeId
+          );
           const initialPosition = parentNode
             ? { x: parentNode.position.x + 300, y: parentNode.position.y + 100 }
             : { x: 500, y: 500 };
 
           newNode.position =
-            newNode.parentId === 'incomingCall' ? { x: 180, y: 50 } : initialPosition;
+            newNode.parentId === "incomingCall"
+              ? { x: 180, y: 50 }
+              : initialPosition;
 
           const nodesArray = [...existingNodes, newNode];
           let newEdge;
           let updatedEdges;
 
-          if (data.prevNodeId === 'incomingCall') {
+          if (data.prevNodeId === "incomingCall") {
             newEdge = {
-              id: 'incoming-call',
-              source: 'incomingCall',
-              sourceHandle: 'incomingCall',
+              id: "incoming-call",
+              source: "incomingCall",
+              sourceHandle: "incomingCall",
               target: newNode?.id,
               targetHandle: `${data?.type}:target:${newNode?.id}`,
               targetType: data?.type,
               type: edgeAttributes?.type,
               style: edgeAttributes,
             };
-            updatedEdges = edges?.filter((e) => e?.id !== 'incoming-call');
+            updatedEdges = edges?.filter((e) => e?.id !== "incoming-call");
             updatedEdges.push(newEdge);
           } else {
             newEdge = createEdge(nodesArray, data);
@@ -822,20 +910,20 @@ function TestFlows() {
           flowDimensionsForward(newNode?.id);
           setToastAction({
             isVisible: true,
-            type: 'success',
-            message: 'Node Adding successfully.',
+            type: "success",
+            message: "Node Adding successfully.",
           });
         } catch (error) {
           setToastAction({
             isVisible: true,
-            type: 'failed',
-            message: 'Error adding component. Please try again.',
+            type: "failed",
+            message: "Error adding component. Please try again.",
           });
         }
       };
 
-      if (data?.prevNodeId === 'incomingCall') {
-        const updatedNodes = await handleDeleteNode('node-2', setNodes);
+      if (data?.prevNodeId === "incomingCall") {
+        const updatedNodes = await handleDeleteNode("node-2", setNodes);
         await addNodeAndArrange(updatedNodes);
       } else {
         await addNodeAndArrange(nodes);
@@ -886,7 +974,10 @@ function TestFlows() {
         return node;
       });
 
-      updateEdgesArray(getNodeDetails(data?.nodeId, flowNodes), data?.details)?.then(async () => {
+      updateEdgesArray(
+        getNodeDetails(data?.nodeId, flowNodes),
+        data?.details
+      )?.then(async () => {
         const layoutedNodes = customLayout(updatedNodes, flowEdges);
         setNodes(layoutedNodes);
         setFlowNodes(layoutedNodes);
@@ -931,7 +1022,7 @@ function TestFlows() {
         });
       });
     }
-    setNodeSelectedForDelete({ isVisible: false, nodeId: '', type: '' });
+    setNodeSelectedForDelete({ isVisible: false, nodeId: "", type: "" });
   }, [
     edges,
     handleUpdateCallFlow,
@@ -956,7 +1047,7 @@ function TestFlows() {
       setEdges(initialEdges);
       setFlowNodes(initialNodes);
       setFlowEdges(initialEdges);
-      setNodeSelectedForDelete({ isVisible: false, nodeId: '', type: '' });
+      setNodeSelectedForDelete({ isVisible: false, nodeId: "", type: "" });
       handleUpdateCallFlow(initialNodes, initialEdges);
       return;
     }
@@ -965,12 +1056,16 @@ function TestFlows() {
       (e) => e?.source === selectedNodeId || e?.target === selectedNodeId
     );
     const animateDeleteAndRearrange = async () => {
-      const updatedNodesArray = nodes?.filter((node) => node?.id !== selectedNodeId);
-      const updatedEdgesArray = edges?.filter((e) => !relatedEdges?.includes(e));
+      const updatedNodesArray = nodes?.filter(
+        (node) => node?.id !== selectedNodeId
+      );
+      const updatedEdgesArray = edges?.filter(
+        (e) => !relatedEdges?.includes(e)
+      );
       setNodes(updatedNodesArray);
       setEdges(updatedEdgesArray);
       const endNodes = customLayout(updatedNodesArray, updatedEdgesArray);
-      setNodeSelectedForDelete({ isVisible: false, nodeId: '', type: '' });
+      setNodeSelectedForDelete({ isVisible: false, nodeId: "", type: "" });
       await animateNodePositions(updatedNodesArray, endNodes, 500);
       setFlowNodes(endNodes);
       setFlowEdges(updatedEdgesArray);
@@ -982,8 +1077,8 @@ function TestFlows() {
     animateDeleteAndRearrange()?.catch(() => {
       setToastAction({
         isVisible: true,
-        type: 'failed',
-        message: 'Error deleting component. Please try again.',
+        type: "failed",
+        message: "Error deleting component. Please try again.",
       });
     });
   }, [
@@ -1059,9 +1154,12 @@ function TestFlows() {
       const animate = () => {
         if (step < steps) {
           const progress = (step + 1) / steps;
-          const newX = currentView.x + (fitViewport.x - currentView.x) * progress;
-          const newY = currentView.y + (fitViewport.y - currentView.y) * progress;
-          const newZoom = currentView.zoom + (fitViewport.zoom - currentView.zoom) * progress;
+          const newX =
+            currentView.x + (fitViewport.x - currentView.x) * progress;
+          const newY =
+            currentView.y + (fitViewport.y - currentView.y) * progress;
+          const newZoom =
+            currentView.zoom + (fitViewport.zoom - currentView.zoom) * progress;
 
           reactFlowInstance?.setViewport({
             x: newX,
@@ -1120,7 +1218,10 @@ function TestFlows() {
       const contentHeight = bounds.maxY - bounds.minY;
 
       const leftPadding = MIN_PADDING;
-      const rightPadding = Math?.max(MIN_PADDING + 100, viewportWidth - contentWidth - leftPadding);
+      const rightPadding = Math?.max(
+        MIN_PADDING + 100,
+        viewportWidth - contentWidth - leftPadding
+      );
       const width = contentWidth + leftPadding + rightPadding;
       const height = contentHeight + FIXED_TOP_PADDING + MIN_BOTTOM_PADDING;
 
@@ -1129,18 +1230,27 @@ function TestFlows() {
       let zoom = Math?.min(xZoom, yZoom);
       zoom = Math?.min(Math?.max(zoom, MIN_ZOOM_VIEW), MAX_ZOOM_VIEW);
 
-      const zoomFactor = (zoom - MIN_ZOOM_VIEW) / (MAX_ZOOM_VIEW - MIN_ZOOM_VIEW);
+      const zoomFactor =
+        (zoom - MIN_ZOOM_VIEW) / (MAX_ZOOM_VIEW - MIN_ZOOM_VIEW);
       const bottomPadding =
-        MIN_BOTTOM_PADDING + (MAX_BOTTOM_PADDING - MIN_BOTTOM_PADDING) * (1 - zoomFactor);
+        MIN_BOTTOM_PADDING +
+        (MAX_BOTTOM_PADDING - MIN_BOTTOM_PADDING) * (1 - zoomFactor);
 
       const topPaddingRange = MAX_FIXED_TOP_PADDING - MIN_FIXED_TOP_PADDING;
-      const dynamicFixedTopPadding = MAX_FIXED_TOP_PADDING - topPaddingRange * (1 - zoomFactor);
+      const dynamicFixedTopPadding =
+        MAX_FIXED_TOP_PADDING - topPaddingRange * (1 - zoomFactor);
 
       let x = leftPadding - bounds.minX * zoom;
       let y = dynamicFixedTopPadding - bounds.minY * zoom;
 
-      x = Math?.min(Math?.max(x, -viewportWidth + leftPadding + rightPadding), leftPadding);
-      y = Math?.max(dynamicFixedTopPadding, Math?.min(y, viewportHeight - bottomPadding));
+      x = Math?.min(
+        Math?.max(x, -viewportWidth + leftPadding + rightPadding),
+        leftPadding
+      );
+      y = Math?.max(
+        dynamicFixedTopPadding,
+        Math?.min(y, viewportHeight - bottomPadding)
+      );
 
       reactFlowInstance?.setViewport({ x, y, zoom }, { duration: 500 });
       setIsResetZoomEnabled(true);
@@ -1149,7 +1259,9 @@ function TestFlows() {
   }, [reactFlowInstance]);
 
   const resetFlowLayout = useCallback(() => {
-    const targetNodes = nodes?.filter((node) => ['incomingCall', 'node-2']?.includes(node?.id));
+    const targetNodes = nodes?.filter((node) =>
+      ["incomingCall", "node-2"]?.includes(node?.id)
+    );
     if (targetNodes?.length === 2) return;
 
     const startNodes = [...nodes];
@@ -1159,7 +1271,14 @@ function TestFlows() {
       setFlowNodes(endNodes);
       handleUpdateCallFlow(endNodes, edges);
     });
-  }, [animateNodePositions, edges, nodes, setNodes, setFlowNodes, handleUpdateCallFlow]);
+  }, [
+    animateNodePositions,
+    edges,
+    nodes,
+    setNodes,
+    setFlowNodes,
+    handleUpdateCallFlow,
+  ]);
 
   const handleZoomIn = useCallback(() => {
     reactFlowInstance?.zoomIn({ duration: 500 });
@@ -1178,9 +1297,12 @@ function TestFlows() {
       setActiveEdgeId(e?.id);
       const result = edges?.find((p) => p?.id === e?.id);
       if (result) {
-        setActiveNodesDetails({ sourceId: result?.source, targetId: result?.target });
+        setActiveNodesDetails({
+          sourceId: result?.source,
+          targetId: result?.target,
+        });
       } else {
-        setActiveNodesDetails({ sourceId: '', targetId: '' });
+        setActiveNodesDetails({ sourceId: "", targetId: "" });
       }
     },
     [edges, setActiveEdgeId, setActiveNodesDetails]
@@ -1200,7 +1322,7 @@ function TestFlows() {
     (event, e) => {
       if (e?.id !== lastAddedNode?.edgeId) {
         setActiveEdgeId(null);
-        setActiveNodesDetails({ sourceId: '', targetId: '' });
+        setActiveNodesDetails({ sourceId: "", targetId: "" });
       }
     },
     [lastAddedNode?.edgeId, setActiveEdgeId, setActiveNodesDetails]
@@ -1218,21 +1340,21 @@ function TestFlows() {
       ?.then(() => {
         setToastAction({
           isVisible: true,
-          type: 'success',
-          message: 'Flow has been published successfully.',
+          type: "success",
+          message: "Flow has been published successfully.",
         });
       })
       ?.catch((error) => {
         if (error?.response?.status === 500) {
           setToastAction({
             isVisible: true,
-            type: 'failed',
-            message: 'Something went wrong.',
+            type: "failed",
+            message: "Something went wrong.",
           });
         } else {
           setToastAction({
             isVisible: true,
-            type: 'failed',
+            type: "failed",
             message: error?.response?.data?.error?.message,
           });
         }
@@ -1240,7 +1362,7 @@ function TestFlows() {
       ?.finally(() => {
         setShow({
           isVisible: false,
-          type: '',
+          type: "",
         });
       });
   }, [params?.id, setShow]);
@@ -1250,21 +1372,21 @@ function TestFlows() {
       ?.then(() => {
         setToastAction({
           isVisible: true,
-          type: 'success',
-          message: 'Flow has been Unpublished successfully.',
+          type: "success",
+          message: "Flow has been Unpublished successfully.",
         });
       })
       ?.catch((error) => {
         if (error?.response?.status === 500) {
           setToastAction({
             isVisible: true,
-            type: 'failed',
-            message: 'Something went wrong.',
+            type: "failed",
+            message: "Something went wrong.",
           });
         } else {
           setToastAction({
             isVisible: true,
-            type: 'failed',
+            type: "failed",
             message: error?.response?.data?.error?.message,
           });
         }
@@ -1272,7 +1394,7 @@ function TestFlows() {
       ?.finally(() => {
         setShow({
           isVisible: false,
-          type: '',
+          type: "",
         });
       });
   }, [params?.id, setShow]);
@@ -1280,7 +1402,9 @@ function TestFlows() {
   const handleIVRSearch = useCallback(
     (key) => {
       setIVRSearchResult(
-        availableIVRMenus?.filter((ivr) => ivr?.name?.toLowerCase()?.includes(key?.toLowerCase()))
+        availableIVRMenus?.filter((ivr) =>
+          ivr?.name?.toLowerCase()?.includes(key?.toLowerCase())
+        )
       );
     },
     [availableIVRMenus]
@@ -1295,7 +1419,7 @@ function TestFlows() {
         sourceHandle: `${show?.targetType}:source:${show?.prevNodeId}`,
         target: targetNodeId,
         targetHandle: `ivr-menu-2:target:${targetNodeId}`,
-        targetType: 'ivr-menu-2',
+        targetType: "ivr-menu-2",
         type: edgeAttributes?.type,
         style: edgeAttributes,
       };
@@ -1307,9 +1431,17 @@ function TestFlows() {
         saveToHistory(newNodes, updatedEdges);
         return updatedEdges;
       });
-      setShow({ isVisible: false, type: '' });
+      setShow({ isVisible: false, type: "" });
     },
-    [handleUpdateCallFlow, nodes, saveToHistory, setEdges, setFlowEdges, setShow, show]
+    [
+      handleUpdateCallFlow,
+      nodes,
+      saveToHistory,
+      setEdges,
+      setFlowEdges,
+      setShow,
+      show,
+    ]
   );
 
   const togglePlay = useCallback((id, parentType, url, isVoicePalying) => {
@@ -1336,9 +1468,9 @@ function TestFlows() {
 
   const resetAudio = useCallback(() => {
     setSelectedVoice({
-      id: 'select',
-      parentType: '',
-      url: '',
+      id: "select",
+      parentType: "",
+      url: "",
       isVoicePalying: false,
     });
     audioRef.current.currentTime = 0;
@@ -1348,15 +1480,15 @@ function TestFlows() {
   const handleAudioError = useCallback(() => {
     if (audioRef?.current?.src) {
       setSelectedVoice({
-        id: 'select',
-        parentType: '',
-        url: '',
+        id: "select",
+        parentType: "",
+        url: "",
         isVoicePalying: false,
       });
       setToastAction({
         isVisible: true,
-        type: 'failed',
-        message: 'Error while loading audio',
+        type: "failed",
+        message: "Error while loading audio",
       });
     }
   }, []);
@@ -1389,30 +1521,44 @@ function TestFlows() {
           voiceLibraryResponse,
           agentAvailabilitiesResponse,
         ] = await Promise.all([
-          ListAgents('telephony'),
-          ListDepartments(),
-          ListAllApiLibrary(),
-          ListCallFlowsListWithoutPagination(),
-          ListCallerList(),
-          ListVoiceCategory(),
-          ListAllVoiceLibrary(),
-          ListAgentAvailabilitiesWithoutPagination(),
+          ListAgents("telephony").catch(() => ({ data: [] })),
+          ListDepartments().catch(() => ({ data: [] })),
+          ListAllApiLibrary().catch(() => ({ data: [] })),
+          ListCallFlowsListWithoutPagination().catch(() => ({ data: [] })),
+          ListCallerList().catch(() => ({ data: [] })),
+          ListVoiceCategory().catch(() => ({ data: [] })),
+          ListAllVoiceLibrary().catch(() => ({ data: [] })),
+          ListAgentAvailabilitiesWithoutPagination().catch(() => ({
+            data: [],
+          })),
         ]);
 
-        setAgents(agentsResponse?.data);
-        setDepartments(departmentsResponse?.data);
-        setApiLibraries(apiLibrariesResponse?.data);
-        setCallFlows(callFlowsResponse?.data);
-        setCallerList(callerListResponse?.data);
-        setCallerListArray(callerListResponse?.data);
-        setCategoriesList(voiceCategoryResponse?.data);
-        setAllAvailableVoices(voiceLibraryResponse?.data);
-        setAgentAvailabilities(agentAvailabilitiesResponse?.data);
+        setAgents(agentsResponse?.data || []);
+        setDepartments(departmentsResponse?.data || []);
+        setApiLibraries(apiLibrariesResponse?.data || []);
+        setCallFlows(callFlowsResponse?.data || []);
+        setCallerList(callerListResponse?.data || []);
+        setCallerListArray(callerListResponse?.data || []);
+        setCategoriesList(voiceCategoryResponse?.data || []);
+        setAllAvailableVoices(voiceLibraryResponse?.data || []);
+        setAgentAvailabilities(agentAvailabilitiesResponse?.data || []);
       } catch (error) {
+        // Provide dummy data if the entire Promise.all fails
+        setAgents([]);
+        setDepartments([]);
+        setApiLibraries([]);
+        setCallFlows([]);
+        setCallerList([]);
+        setCallerListArray([]);
+        setCategoriesList([]);
+        setAllAvailableVoices([]);
+        setAgentAvailabilities([]);
+
+        console.log("Using dummy data due to API errors");
         setToastAction({
           isVisible: true,
-          type: 'failed',
-          message: 'Error fetching data. Please refresh the page.',
+          type: "failed",
+          message: "Error fetching data. Please refresh the page.",
         });
       }
     };
@@ -1420,7 +1566,7 @@ function TestFlows() {
   }, [setCallerListArray, refresh]);
 
   useEffect(() => {
-    const ivrMenuNodes = nodes?.filter((node) => node?.type === 'ivr-menu');
+    const ivrMenuNodes = nodes?.filter((node) => node?.type === "ivr-menu");
     setAvailableIVRMenus(ivrMenuNodes);
     setIVRSearchResult(ivrMenuNodes);
   }, [nodes]);
@@ -1445,7 +1591,19 @@ function TestFlows() {
         setCallFlowDetails({ isLoading: false, data: response?.data });
       })
       ?.catch(() => {
-        setCallFlowDetails({ isLoading: false, data: {} });
+        // Provide dummy data structure when API fails
+        setCallFlowDetails({
+          isLoading: false,
+          data: {
+            attributes: {
+              name: "Demo Flow",
+              flow: {
+                actions: initialNodes,
+                connections: initialEdges,
+              },
+            },
+          },
+        });
       });
   }, [params?.id]);
 
@@ -1494,23 +1652,33 @@ function TestFlows() {
         const contentWidth = nodesBounds.maxX - nodesBounds.minX;
         const contentHeight = nodesBounds.maxY - nodesBounds.minY;
 
-        const horizontalZoom = containerWidth / (contentWidth + 2 * BASE_PADDING);
-        const verticalZoom = containerHeight / (contentHeight + BASE_TOP_PADDING + BASE_PADDING);
+        const horizontalZoom =
+          containerWidth / (contentWidth + 2 * BASE_PADDING);
+        const verticalZoom =
+          containerHeight / (contentHeight + BASE_TOP_PADDING + BASE_PADDING);
 
         targetZoom = Math.min(horizontalZoom, verticalZoom, MAX_ZOOM);
         targetZoom = Math.max(targetZoom, MIN_ZOOM);
 
         const zoomFactor = (targetZoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM);
         const paddingScale = Math.max(zoomFactor, 0.3);
-        const effectiveTopPadding = Math.max(BASE_TOP_PADDING * paddingScale, MIN_PADDING);
+        const effectiveTopPadding = Math.max(
+          BASE_TOP_PADDING * paddingScale,
+          MIN_PADDING
+        );
 
-        targetX = (containerWidth - contentWidth * targetZoom) / 2 - nodesBounds.minX * targetZoom;
+        targetX =
+          (containerWidth - contentWidth * targetZoom) / 2 -
+          nodesBounds.minX * targetZoom;
         targetY =
           (containerHeight - contentHeight * targetZoom) / 2 -
           nodesBounds.minY * targetZoom +
           effectiveTopPadding;
       }
-      reactFlowInstance.setViewport({ x: targetX, y: targetY, zoom: targetZoom }, { duration: 0 });
+      reactFlowInstance.setViewport(
+        { x: targetX, y: targetY, zoom: targetZoom },
+        { duration: 0 }
+      );
       requestAnimationFrame(() => {
         setIsCustomLayoutReady(true);
         setIsFlowVisible(true);
@@ -1563,8 +1731,8 @@ function TestFlows() {
         if (!isSubscribed) return;
         setToastAction({
           isVisible: true,
-          type: 'failed',
-          message: 'Error loading flow data. Please refresh the page.',
+          type: "failed",
+          message: "Error loading flow data. Please refresh the page.",
         });
       }
     };
@@ -1577,7 +1745,10 @@ function TestFlows() {
   const edgeStyles = useMemo(() => {
     const styles = {};
     edges?.forEach((edgeItem) => {
-      if (edgeItem?.id === lastAddedNode?.edgeId || edgeItem?.id === activeEdgeId) {
+      if (
+        edgeItem?.id === lastAddedNode?.edgeId ||
+        edgeItem?.id === activeEdgeId
+      ) {
         styles[edgeItem?.id] = { stroke: activeEdgeColor, strokeWidth: 2 };
       } else {
         styles[edgeItem?.id] = edgeAttributes;
@@ -1658,7 +1829,9 @@ function TestFlows() {
                   <Subhead
                     id={callFlowDetails?.data?.id}
                     name={callFlowDetails?.data?.attributes?.name}
-                    isPublished={callFlowDetails?.data?.attributes?.is_published}
+                    isPublished={
+                      callFlowDetails?.data?.attributes?.is_published
+                    }
                     status={callFlowDetails?.data?.attributes?.status}
                     formik={formik}
                     loading={false}
@@ -1669,17 +1842,19 @@ function TestFlows() {
                     ref={containerRef}
                     onContextMenu={handleRightClick}
                     className={`main-body-inner scroll-custom shadow-3  ${
-                      callFlowDetails?.isLoading ? 'd-none' : ''
+                      callFlowDetails?.isLoading ? "d-none" : ""
                     }`}
                     style={{
-                      paddingTop: '0',
-                      paddingBottom: '0',
-                      paddingLeft: '0',
-                      paddingRight: '0',
+                      paddingTop: "0",
+                      paddingBottom: "0",
+                      paddingLeft: "0",
+                      paddingRight: "0",
                     }}
                   >
                     <ActionButtons>
-                      <CallFlowsAutoArrange setToDefaultLayout={resetFlowLayout} />
+                      <CallFlowsAutoArrange
+                        setToDefaultLayout={resetFlowLayout}
+                      />
                       <CallFlowsFitScreen setToDefaultLayout={handleFitView} />
                       <CallFlowsResetZoom
                         setToDefaultLayout={handleResetZoom}
@@ -1689,13 +1864,18 @@ function TestFlows() {
                         setToDefaultLayout={redo}
                         isEnabled={flowHistoryIndex < flowHistory.length - 1}
                       />
-                      <CallFlowsUndo setToDefaultLayout={undo} isEnabled={flowHistoryIndex > 0} />
+                      <CallFlowsUndo
+                        setToDefaultLayout={undo}
+                        isEnabled={flowHistoryIndex > 0}
+                      />
                       <CallFlowsZoomIn setToDefaultLayout={handleZoomIn} />
                       <CallFlowsZoomOut setToDefaultLayout={handleZoomOut} />
                     </ActionButtons>
                     {isCustomLayoutReady && isFlowVisible && renderFlow()}
                   </div>
-                  {(callFlowDetails?.isLoading || !isCustomLayoutReady || !isFlowVisible) && (
+                  {(callFlowDetails?.isLoading ||
+                    !isCustomLayoutReady ||
+                    !isFlowVisible) && (
                     <div className="main-body-inner scroll-custom shadow-3 d-flex align-items-center justify-content-center">
                       <SpinningLoader />
                     </div>
@@ -1708,7 +1888,7 @@ function TestFlows() {
       </div>
 
       <ComponentSelectPopup
-        isVisible={show?.isVisible && show?.type === 'select-components'}
+        isVisible={show?.isVisible && show?.type === "select-components"}
         vendorComponents={vendorComponents}
         setSearch={setSearch}
         search={search}
@@ -1753,21 +1933,21 @@ function TestFlows() {
       />
 
       <TestFlowModal
-        isVisible={show?.isVisible && show?.type === 'test-flow'}
+        isVisible={show?.isVisible && show?.type === "test-flow"}
         nodes={nodes}
         edges={edges}
         callFlowName={callFlowDetails?.data?.attributes?.name}
         callFlowId={callFlowDetails?.data?.id}
         isPublished={callFlowDetails?.data?.attributes?.is_published}
         allAvailableVoices={allAvailableVoices}
-        onClose={() => setShow({ isVisible: false, type: '' })}
+        onClose={() => setShow({ isVisible: false, type: "" })}
       />
 
       {toastAction?.isVisible &&
-        (toastAction?.type === 'success' ? (
+        (toastAction?.type === "success" ? (
           <ToastSuccess
             id="RenameWidgetMsg"
-            onClose={() => setToastAction({ isVisible: false, message: '' })}
+            onClose={() => setToastAction({ isVisible: false, message: "" })}
             showToast={toastAction?.isVisible}
           >
             <span>{toastAction?.message}</span>
@@ -1775,7 +1955,7 @@ function TestFlows() {
         ) : (
           <ToastError
             id="RenameWidgetMsg"
-            onClose={() => setToastAction({ isVisible: false, message: '' })}
+            onClose={() => setToastAction({ isVisible: false, message: "" })}
             showToast={toastAction?.isVisible}
             isSuccess={false}
           >
