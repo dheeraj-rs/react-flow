@@ -66,7 +66,10 @@ import CallFlowsUndo from "./components/CallFlowsUndo";
 import { ListAllComponents } from "../../common/api-collection/Telephony/Components";
 import { ListCallerList } from "../../common/api-collection/Telephony/CallerList";
 import ActionButtons from "./components/ActionButtons";
-import { handleListVendorDummyComponents } from "./data/SampleData";
+import {
+  callFlowDummyDetails,
+  handleListVendorDummyComponents,
+} from "./data/SampleData";
 
 const MIN_ZOOM = 0.05;
 const MAX_ZOOM = 3;
@@ -97,10 +100,12 @@ function TestFlows() {
     setSelectedNode,
     setActiveNodeId,
   } = useStore();
-  const [callFlowDetails, setCallFlowDetails] = useState({
-    isLoading: true,
-    data: {},
-  });
+  const [callFlowDetails, setCallFlowDetails] = useState(
+    callFlowDummyDetails || {
+      isLoading: true,
+      data: {},
+    }
+  );
   const [vendorComponents, setVendorComponents] = useState(
     handleListVendorDummyComponents?.data || []
   );

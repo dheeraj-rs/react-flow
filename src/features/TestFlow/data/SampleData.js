@@ -197,3 +197,163 @@ export const handleListVendorDummyComponents = {
     },
   ],
 };
+
+export const callFlowDummyDetails = {
+  isLoading: false,
+  data: {
+    type: "telephony_call_flows",
+    id: "98",
+    attributes: {
+      organization_id: 1,
+      account_id: 1,
+      name: "new",
+      status: "draft",
+      type: "normal",
+      flow: {
+        actions: [
+          {
+            id: "root-node", // Add this root node
+            position: {
+              x: 0,
+              y: 0,
+            },
+            type: "group", // Using group type for parent nodes
+            data: {
+              label: "Root",
+            },
+            style: {
+              opacity: 0,
+              backgroundColor: "transparent",
+              border: "none",
+              width: 0,
+              height: 0,
+              zIndex: -1,
+            },
+          },
+          {
+            x: 177,
+            y: 23.5,
+            id: "incomingCall",
+            data: {
+              label: "Incoming Call",
+            },
+            rank: 0,
+            type: "incomingCall",
+            width: 151,
+            column: 1,
+            height: 33,
+            parentId: "root-node",
+            position: {
+              x: 0,
+              y: 50,
+            },
+            draggable: false,
+            nodeIndex: 0,
+            numbetOfKeys: 100,
+            defaultPosition: {
+              x: 30,
+              y: 80,
+            },
+          },
+          {
+            id: "189c2f00-bad4-4a5e-a022-f9323ace6d61",
+            data: [],
+            type: "greetify",
+            width: 250,
+            height: 90,
+            details: {
+              voiceId: "713",
+            },
+            dragging: false,
+            parentId: "incomingCall",
+            position: {
+              x: 180,
+              y: 50,
+            },
+            selected: false,
+            childrens: [],
+            draggable: true,
+            minHeight: 90,
+            prevNodeId: "incomingCall",
+            sourceIndex: 0,
+            prevHandleId: "incoming-call",
+            positionAbsolute: {
+              x: 180,
+              y: 45,
+            },
+          },
+          {
+            id: "37b5ab3a-831f-4162-a29d-5bcb2eb7680f",
+            data: [],
+            type: "shortcut",
+            width: 250,
+            height: 180,
+            details: {
+              keyList: [10],
+              timeout: 10,
+            },
+            dragging: true,
+            parentId: "189c2f00-bad4-4a5e-a022-f9323ace6d61",
+            position: {
+              x: 555,
+              y: 60,
+            },
+            selected: true,
+            childrens: [],
+            draggable: true,
+            minHeight: 180,
+            prevNodeId: "189c2f00-bad4-4a5e-a022-f9323ace6d61",
+            sourceIndex: 0,
+            prevHandleId:
+              "189c2f00-bad4-4a5e-a022-f9323ace6d61-after-play-greeting",
+            positionAbsolute: {
+              x: 555,
+              y: 60,
+            },
+          },
+        ],
+        connections: [
+          {
+            id: "incoming-call",
+            type: "smoothstep",
+            style: {
+              type: "smoothstep",
+              stroke: "#5E6A76",
+              strokeWidth: 1.3,
+            },
+            source: "incomingCall",
+            target: "189c2f00-bad4-4a5e-a022-f9323ace6d61",
+            targetType: "greetify",
+            sourceHandle: "incomingCall",
+            targetHandle:
+              "greetify:target:189c2f00-bad4-4a5e-a022-f9323ace6d61",
+          },
+          {
+            id: "edge-06f37d38-7f7c-40d4-91f1-d0b541921349",
+            type: "smoothstep",
+            style: {
+              type: "smoothstep",
+              stroke: "#5E6A76",
+              strokeWidth: 1.3,
+            },
+            source: "189c2f00-bad4-4a5e-a022-f9323ace6d61",
+            target: "37b5ab3a-831f-4162-a29d-5bcb2eb7680f",
+            keyValue: null,
+            targetType: "shortcut",
+            sourceIndex: 0,
+            sourceHandle:
+              "after-play-greeting:source:189c2f00-bad4-4a5e-a022-f9323ace6d61",
+            targetHandle:
+              "shortcut:target:37b5ab3a-831f-4162-a29d-5bcb2eb7680f",
+          },
+        ],
+      },
+      is_published: null,
+      is_enabled: 1,
+      creator_id: null,
+      deleted_at: null,
+      created_at: "2024-12-30T22:04:06.000000Z",
+      updated_at: "2025-05-17T21:06:33.000000Z",
+    },
+  },
+};
