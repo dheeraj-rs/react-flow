@@ -1,0 +1,105 @@
+.button-groups {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-button {
+  padding: 8px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  color: black;
+  transition: all 0.3s ease;
+  &:hover{
+    background-color: black;
+    color:#fff;
+    transition: all .5s ease;
+  }
+}
+
+.toggle-button.active {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+
+// ###################### filter styles ################################
+
+.report-filter-dropdown button {
+  border:1px solid transparent;
+  background-color: #ebf0f4;
+  border-radius:5px;
+  position:relative;
+  padding-right: 25px !important;
+  height: 26px;
+  padding: 0px 25px 0px 8px !important;
+}
+
+.report-filter-dropdown button::after {
+content:'';
+position:absolute;
+height:27px;
+width:10px;
+background-image: url('../../../../../public/call-flows-hours/CaretDown.svg');
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+top: -1px;
+width:15px;
+right:5px;
+}
+
+.report-filter-dropdown button:hover,
+.report-filter-dropdown button.show,
+.report-filter-dropdown button:active {
+background-color: #D7EEFF !important;
+border:1px solid #D7EEFF !important;
+}  
+
+.underlying-data-header {
+border-bottom-right-radius: 0px !important;
+border-bottom-left-radius: 0px !important;
+}
+
+.underlying-data-body {
+border-top-right-radius: 0px !important;
+border-top-left-radius: 0px !important;
+margin-top: -3px !important;
+}
+
+.report-filter-toggle-button {
+ width:30px;
+ height:20px;
+ display: flex;
+ align-items:center;
+ padding: 0;
+ justify-content:center;
+ border-radius: 5px;
+ border:1px solid #AFB5BF;
+}
+
+.report-filter-toggle-button.active {
+border:1px solid #645DF6;
+background-color: #645DF6;
+color:#fff;
+}
+
+
+.report-filter-toggle-button:nth-child(1){
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+}
+
+.report-filter-toggle-button:nth-child(2){
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+

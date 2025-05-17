@@ -1,0 +1,124 @@
+#schedule__offcanvas__main {
+    max-width:502px;
+    width:100%;
+    .share__item__list label::before {
+        margin: 0;
+    }
+    
+    .share__canvas__button__outer {
+        border-top:1px solid #C3CEE9;
+    }
+    
+    .schedule__list li.active {
+        background-color: #EBF0F4;
+    }
+    
+    .selectall__schedule__checkbox label {
+        color: #2D50C8 !important;
+    }
+    .schedule__list {
+        .check-box {
+            label {
+                &::before {
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+    .selected__lables {
+        background-color: #D1E2FF;
+    }
+    .schedule__offcanvas__textarea {
+        min-height: 90px;
+    }
+    
+}
+
+#schedule__offcanvas__main {
+    .schedule__list__sidebar li.active {
+        background-color: #EBF0F4;
+    }
+      .schedule__list__sidebar li .creator__label {
+        color: #6174A4 !important;
+    }  
+    .selected__lables {
+        background-color: #D1E2FF;
+    }
+    .schedule__offcanvas__textarea {
+        min-height: 90px;
+    }
+}
+
+.days__list{
+    gap:8px;
+    li {
+        width:50px;
+        height:28px;
+        background-color: #D1EBDF;
+        &.active {
+            background-color: #0FA779;
+            color: #fff !important;
+        }
+    }
+}
+
+.email__days__list{
+    gap:8px;
+    li {
+        width:50px;
+        height:28px;
+        background-color: #D1EBDF;
+        &.active {
+            background-color: #0FA779;
+            color: #fff !important;
+        }
+    }
+}
+
+
+
+.monthly__content__select {
+    flex-basis: 150px;
+}
+
+
+
+#schedule__offcanvas {
+    max-width:502px;
+    width:100%;
+    .share__item__list label::before {
+        margin: 0;
+    }
+    
+    .share__canvas__button__outer {
+        border-top:1px solid #C3CEE9;
+    }
+    
+    .schedule__list li.active {
+        background-color: #EBF0F4;
+    }
+    
+    .selectall__schedule__checkbox label {
+        color: #2D50C8 !important;
+    }
+    .schedule__list {
+        .check-box {
+            label {
+                &::before {
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+    .selected__lables {
+        background-color: #D1E2FF;
+    }
+    .schedule__offcanvas__textarea {
+        min-height: 90px;
+    }
+    
+}
+
+.cva__input::placeholder {
+    color:#000;
+}

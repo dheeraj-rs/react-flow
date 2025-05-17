@@ -1,0 +1,35 @@
+.live-box{
+    min-height: 110px;
+}
+
+.divider {
+    height: 40px;
+    width: 1px;
+    background: #ccc;
+}
+.arrow-up{
+    color:#0FA779;
+    font-size: 20px;
+}
+.collection-box{
+    min-height: 165px;
+}
+.apexcharts-yaxis-title-text{
+    font-weight: normal !important;
+    font-family: 'Poppins' !important;
+}
+.filter-btn{
+    background: transparent;
+    border: none !important;
+}
+.bg-green-btn{
+    background: #ACEBC6 !important;
+}
+.bg-danger-btn{
+    background: #FF9494 !important;
+}
+@media (max-width: 992px) {
+    .custom-mob {
+        width: 100% !important;
+    }
+}

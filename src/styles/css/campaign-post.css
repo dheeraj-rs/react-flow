@@ -1,0 +1,9 @@
+.voice__post__outer .post__icon__outer {
+  width: 30px;
+  height: 30px;
+}
+@media (min-width: 1200px) {
+  .voice__post__outer .campaign__name__right__inner {
+    padding-left: 50px;
+  }
+}/*# sourceMappingURL=campaign-post.css.map */

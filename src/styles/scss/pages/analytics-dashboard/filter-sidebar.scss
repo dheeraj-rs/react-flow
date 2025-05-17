@@ -1,0 +1,118 @@
+#analytic-filter-section {
+    border-left: 1px solid #C3CEE9;
+    padding-left: 0;
+    .filter__edit__header {
+        border-bottom: 1px solid #C3CEE9;
+    }
+    .custom__accordian {
+        .custom__accordian__item {
+            border-bottom: 1px solid #C3CEE9;
+        }
+    }
+    .custom__accodian__header {
+        .green__tick {
+            display: block !important;
+        }
+    }
+    .advanced__filter__wrap__inner{
+        box-shadow: 0px 1px 5px 0px #00000069;
+
+    }
+    .date__time__inner__dropdown__wrap {
+        background-color: #E9F1FE;
+        .dropdown__trigger {
+            border:1px solid #AFB5BF;
+        }
+    }
+    .start__end__dropdown {
+        .dropdown__trigger {
+            border:1px solid #AFB5BF;
+        }
+    }
+}
+.edit-group-advanced-filter {
+    margin-top: -7px;
+}
+
+.dropdown.date__time__name__dropdown__outer {
+    background: #fff;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    // right: 0;
+    z-index: 99;
+}
+
+.dropdown.date__time__name__dropdown__outer.active {
+    display: block;
+}
+
+.filter__edit_button {
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 2px 8px;
+    font-size: 12px !important;
+    &:hover {
+        background-color: #645df6 !important;
+    }
+}
+
+.analytics__filter__dropdown .defaultText {
+    background-color: #EBEFFF;
+    border-radius: 5px;
+    transition:all ease .5s;
+
+    &:hover {
+        background-color: #645DF6 !important;
+        color: #fff !important;
+        transition:all ease .5s;
+       }
+}
+
+.analytics__filter__dropdown .selectbox-selected-div {
+   border:none !important;
+   height:26px !important;
+   img {
+    transition: all ease .5s;
+   }
+   &:hover {
+    img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(10%) saturate(5530%) hue-rotate(237deg) brightness(110%) contrast(108%) !important;
+        transition: all ease .5s;
+    }
+   }
+ .selectbox-option-wrap {
+    li {
+        padding: 6px 10px !important;
+        &:hover {
+            background-color: #EBF0F4 !important;
+        }
+           &.active {
+            background-color: #EBF0F4 !important;
+        }     
+    }
+ }
+}
+
+
+
+
+@media(max-width:991px){
+    .analytic__filter__side__outer {
+        width:100% !important;
+    }
+    .analytic__filter__outer {
+        padding:0 11px !important;
+        height: calc(100vh - 195px);
+        overflow-y: scroll;
+    }
+    #analytic-filter-section {
+        border-left: 0;
+    }
+}
+
+@media(min-width:744px) and (max-width:744px){
+    .analytic__filter__outer {
+        height: calc(100vh - 156px);
+    }
+}

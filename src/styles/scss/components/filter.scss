@@ -1,0 +1,78 @@
+.filter__wrap {
+  .filter__dropdown {
+    .filter__outer {
+        height:38px;
+        width:38px;
+        border-radius: 6px; 
+        border:1px solid #b2bcc8;
+        transition:all ease 0.5s;
+        cursor:pointer;
+        &:hover {
+            background-color: #645df6;
+            transition:all ease 0.5s;
+            img {
+                filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(54deg) brightness(105%) contrast(101%);
+            }
+        }
+        &.show {
+            background-color: #645df6;
+            transition:all ease 0.5s;
+            img {
+                filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(54deg) brightness(105%) contrast(101%);
+            }
+        }
+    }
+    .dropdown-menu {
+        width:230px;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            li {
+                padding :3px 10px;
+                border-radius: 6px;
+                background: #ebf0f4;
+                font-size: 13px;
+                cursor:pointer;
+                &.active {
+                    background: #6174a4;
+                    color: #fff;
+                }
+                &:hover {
+                    background: #6174a4;
+                    color: #fff;
+                }
+            }
+        }
+    }
+  }
+  .filter__active {
+    height:38px;
+    width:38px;
+    border-radius: 6px;
+    border:1px solid #645df6;
+    transition:all ease 0.5s;
+    cursor:pointer;
+    position: relative;
+    &::after {
+        width:10px;
+        height:10px;
+        background-color:#645df6;
+        border-radius: 50%;
+        position: absolute;
+        content:"";
+        top:-5px;
+        left:5px;
+    }
+  }
+}
+
+.filter__wrap .filter__dropdown .dropdown-menu ul li {
+    background: #fff;
+    display: block;
+}
+
+.filter__wrap .filter__dropdown .dropdown-menu ul  {
+    gap:5px;
+}

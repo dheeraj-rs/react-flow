@@ -1,0 +1,16 @@
+.settings__general__tab__header{
+    li {
+        background-color: #D3D2F7;
+        color:#333333;
+        transition:all ease .5s;
+        &:hover {
+            background-color: #000;
+            color:#fff;
+            transition:all ease .5s;
+        }
+        &.active {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+}

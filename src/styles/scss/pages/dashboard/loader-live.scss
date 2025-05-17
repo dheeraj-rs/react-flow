@@ -1,0 +1,54 @@
+@use "sass:math";
+
+$loader-size: 10px;
+
+@keyframes expand {
+  0% {
+    z-index: 2;
+    transform: scale(0);
+  }
+  
+  50% {
+    z-index: 1;
+    transform: scale(1);
+  }
+  
+  100% {
+    z-index: 0;
+  }
+}
+
+.loader-live {
+  position: absolute;
+  //margin: 0 0 0 (-$loader-size / 2);
+  margin: 0 0 0  math.div(-$loader-size, 2);
+  width: ($loader-size - 2);
+  height: ($loader-size - 2);
+  background-color: rgb(15, 167, 121);
+  border-radius: 50%;
+  box-shadow: 0 0 0 math.div(-$loader-size, 6) rgb(201, 246, 233);
+    
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: block;
+    margin: math.div(-$loader-size, 2) 0 0 math.div(-$loader-size, 2);
+    width: $loader-size;
+    height: $loader-size;
+    border-radius: 50%;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &::before {
+    background-color: rgb(201, 246, 233);
+    animation: expand 1.6s ease-out infinite both;
+  }
+
+  &::after {
+    background-color: rgb(15, 167, 121);
+    animation: expand 1.6s ease-out 0.8s infinite both;
+  }
+}

@@ -1,0 +1,54 @@
+.create__plan__outer .create__plan__form__wrap {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+@media (max-width: 1199px) {
+  .create__plan__outer .create__plan__form__wrap {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+.create__plan__outer .rs__image {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.create__plan__outer .custom__gery__box {
+  border-top: 1px solid #C3CEE9;
+  border-bottom: 1px solid #C3CEE9;
+}
+.create__plan__outer .plus {
+  background-color: #EAE8FC;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.create__plan__outer .minus {
+  background-color: #EAE8FC;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.create__plan__outer .feature__list__outer {
+  padding-left: 30px;
+}
+@media (max-width: 1199px) {
+  .create__plan__outer .feature__list__outer {
+    padding-left: 0px;
+  }
+}
+.create__plan__outer .feature__list__item {
+  background-color: #EBF0F4;
+}
+.create__plan__outer .feature__list__item.active {
+  background-color: #EBEFFF;
+}
+.create__plan__outer .feature__list {
+  max-height: 450px;
+}
+.create__plan__outer .feature_list_item_voicemail {
+  border: 1px solid rgba(166, 174, 187, 0.768627451);
+}/*# sourceMappingURL=create-plan.css.map */

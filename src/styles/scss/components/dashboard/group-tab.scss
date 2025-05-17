@@ -1,0 +1,115 @@
+@use "sass:math";
+$loader-size: 10px;
+
+@keyframes expand {
+  0% {
+    z-index: 2;
+    transform: scale(0);
+  }
+  
+  50% {
+    z-index: 1;
+    transform: scale(1);
+  }
+  
+  100% {
+    z-index: 0;
+  }
+}
+.incomming__loader-live {
+    position: relative;
+    margin: 0 0 0 math.div(-$loader-size, 2);;
+    width: ($loader-size - 2);
+    height: ($loader-size - 2);
+    background-color: #157EFB;
+    border-radius: 50%;
+    box-shadow: 0 0 0 math.div(-$loader-size, 6) #D7E9FF;
+      
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: block;
+      margin: math.div(-$loader-size, 2) 0 0 math.div(-$loader-size, 2);
+      width: $loader-size;
+      height: $loader-size;
+      border-radius: 50%;
+      transform: translate3d(0, 0, 0);
+    }
+  
+    &::before {
+      background-color: #D7E9FF;
+      animation: expand 1.6s ease-out infinite both;
+    }
+  
+    &::after {
+      background-color: #157EFB;
+      animation: expand 1.6s ease-out 0.8s infinite both;
+    }
+  }
+
+  .agent__activity__loader-live {
+    position: relative;
+    margin: 0 0 0 math.div(-$loader-size, 2);
+    width: ($loader-size - 2);
+    height: ($loader-size - 2);
+    background-color: rgb(15, 167, 121);
+    border-radius: 50%;
+    box-shadow: 0 0 0 math.div(-$loader-size, 6) rgb(201, 246, 233);
+      
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: block;
+      margin: math.div(-$loader-size, 2) 0 0 math.div(-$loader-size, 2);
+      width: $loader-size;
+      height: $loader-size;
+      border-radius: 50%;
+      transform: translate3d(0, 0, 0);
+    }
+  
+    &::before {
+      background-color: rgb(201, 246, 233);
+      animation: expand 1.6s ease-out infinite both;
+    }
+  
+    &::after {
+      background-color: rgb(15, 167, 121);
+      animation: expand 1.6s ease-out 0.8s infinite both;
+    }
+  }
+
+  .group__header__tab{
+    gap:127px;
+    @media(min-width:741px){
+      gap:4px;
+    }
+    @media(max-width:740px){
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+    li {
+        background-color: #f0f7ff;
+        @media(min-width:741px){
+          flex-basis: calc(50% - 2px);
+        }
+        @media(max-width:740px){
+          width: 100%;
+        }
+        &:nth-child(1){
+          height: 45.5px !important;
+          flex-basis: 181px;
+          @media(max-width:740px){
+            display: none !important;
+          }
+        }
+    }
+
+  }
+

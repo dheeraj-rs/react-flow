@@ -1,0 +1,120 @@
+.performance__overview__content {
+    .performance__overview__content__tab__header{
+        @media(max-width:740px){
+            margin-bottom: 20px;
+        }
+        li {
+            position: relative;
+            cursor: pointer;
+            @media(max-width:740px){
+                font-size: 12px !important;
+            }
+            &.active {
+                color: #645DF6;
+                &::after {
+                    background-color: #645df6;
+                    bottom: -10px;
+                    content: "";
+                    height: 2px;
+                    left: 0;
+                    position: absolute;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .performance__overview__content__filter__tab {
+        width:270px;
+        border-radius: 6px;
+        overflow: hidden;
+        border:1px solid #C3CEE9;
+        @media(max-width:740px){
+            width:100%;
+        }
+        li {
+            height:38px;
+            flex-basis: 34%;
+            background-color: #dde5ea;
+            height: 35px;
+            cursor:pointer;
+            &:nth-child(1){
+                border-right:1px solid #C3CEE9;
+            }
+            &:nth-child(2){
+                border-right: 1px solid #C3CEE9;
+            }
+            &.active {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    }
+    .performance__overview__content__header__time__gap__select {
+        width:170px;
+    }
+    .performance__overview__content__header__agent__group__select {
+        width:170px;
+    }
+    .refresh__button {
+        width:30px;
+        height:30px;
+        border-radius: 6px;
+        background-color: #EBF0F4;
+        transition: all ease 0.5s;
+        cursor: pointer;
+        &:hover {
+            background-color: #000;
+            transition: all ease 0.5s;
+            img {
+                filter: brightness(0) saturate(100%) invert(92%) sepia(100%) saturate(0%) hue-rotate(190deg) brightness(102%) contrast(102%);
+            }
+        }
+    }
+}
+
+.performance__overview__content__header {
+    @media(max-width:1199px){
+        flex-wrap:wrap;
+    }
+}
+
+.performance__overview__content__filter__tab__outer {
+    @media(max-width:740px){
+        flex-basis: 100%;
+    }
+}
+
+.performance__overview__content__header__agent__group__select__outer {
+    .selectbox-selected-div {
+        height:35px !important;
+    }
+    @media(max-width:1199px){
+        flex-basis: 100%;
+        margin-top: 25px;
+    }
+    @media(max-width:740px){
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    .performance__overview__content__header__agent__group__select {
+        @media(max-width:1199px){
+            flex-basis: 50%;
+        }
+        @media(max-width:740px){
+            flex-basis:100%;
+        }
+    }
+    .performance__overview__content__header__time__gap__select__outer {
+        @media(max-width:1199px){
+            flex-basis: 50%;
+        }
+        @media(max-width:740px){
+            flex-basis:100%;
+        }
+    }
+      .performance__overview__content__header__time__gap__select {
+        @media(max-width:1199px){
+            width:calc(100% - 42px);
+        }
+    }  
+}

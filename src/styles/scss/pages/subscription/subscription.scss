@@ -1,0 +1,205 @@
+.subscription-right-header {
+    @media(max-width:1199px){
+        flex-direction: column;
+        align-items: start !important;
+    }
+    .all_ststus_selectbox {
+        width:120px;
+        @media(max-width:600px){
+            width:calc(100% - 110px);
+        }
+        &.downgrade__request__all_ststus_selectbox {
+            @media(max-width:600px){
+                width:100%;
+            }
+        }
+    }
+    .create__plan_button {
+        height:38px;
+        @media(max-width:600px){
+            display: none !important;
+        }
+    }
+    .search_plan_input {
+        width:236px;
+        @media(max-width:1199px){
+            width:calc(100% - 362px);
+        }
+        @media(max-width:600px){
+            width:100%;
+        }
+    }
+    .header-right {
+        @media(max-width:1199px){
+            width: 100%;
+        }
+        @media(max-width:600px){
+            flex-direction: column;
+            align-items: start !important;
+        }
+        &.downgrade__request__header-right {
+            justify-content: space-between !important;
+        }
+    }
+    .year_month_select_wrap {
+        @media(max-width:600px){
+            width:100%;
+        }
+    }
+}
+.downgrade__request__table__outer {
+    @media(max-width:1199px){
+        overflow-x: scroll;
+    }
+    .downgrade__request__table {
+        @media(max-width:1199px){
+            width:1000px;
+        }
+    .downgrade__request__table__header {
+        border-bottom: 1px solid #c3cee9;
+        }
+    }
+}
+
+.addons__outer {
+    .addon__headder__input__wrapper {
+        @media(max-width:1199px){
+            justify-content: space-between;
+        }
+    }
+    .create__addon_modal__btn_outer {
+        @media(max-width:600px){
+            width:100% !important;
+        }
+        button {
+            @media(max-width:600px){
+                width:100% !important;
+            }
+        }
+    }
+}
+
+.button__mobile__same__outer {
+    button {
+        @media(max-width:600px){
+            flex-basis: 50% !important;
+        }
+    }
+}
+
+.auto__renual__selectbox {
+    @media(min-width:1200px){
+        width:118px !important;
+    }
+}
+
+.button__black__large {
+    height:38px;
+    background-color: #000;
+    border:none;
+    color:#fff;
+    transition:all ease .5s;
+    border-radius: 6px;
+    &:hover {
+      background-color: #645DF6;
+      transition: all ease .5s;
+    }
+  }
+
+  .button__white__large {
+    height:38px;
+    background-color: #fff;
+    border:1px solid #8190b7;
+    color:#000;
+    transition:all ease .5s;
+    border-radius: 6px;
+    &:hover {
+      background-color: #000;
+      transition: all ease .5s;
+      color:#fff;
+    }
+  }
+
+  .sub__header__select__items__outer {
+    @media(max-width:991px){
+        justify-content: space-between;
+        gap:0px !important;
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+    .sub__header__select__items {
+        @media(max-width:991px){
+           width:20% !important;
+           padding: 0 10px;
+        }
+        @media(max-width:767px){
+            flex-basis:100%;
+            margin-bottom: 10px;
+        }
+        button {
+            @media(max-width:767px){
+                width:100%;
+            }
+        }
+    }
+  }
+
+  .upgrade__downgrade__selectbox {
+    @media(max-width:991px){
+        flex-basis: 100%;
+    }
+  }
+// .product__upgrade__downgrade__selectbox {
+//     @media(min-width:992px){
+//         width:207px;
+//         .selectbox-option-wrap {
+//             width:auto;
+//         }
+//     }
+// }
+
+.creditpack__item__outer {
+    &:hover {
+        border:1px solid #645df6 !important;
+    }
+}
+
+
+// ################### product page sidebar ########################
+
+.product__menu__item {
+    &:hover {
+        .product__menu__icon {
+            background-color: #fff;
+            transition: all ease .5s;
+        }
+    }
+    .product__menu__icon {
+        height:30px;
+        width:30px;
+        background-color: #F3F4F9;
+        transition: all ease .5s;
+    }
+}
+
+.product-tile {
+    border:1px solid transparent;
+    &:hover {
+        border:1px solid #645df6 !important;
+        h4 {
+            color:#645df6 !important;
+        }
+    }
+}
+
+
+    .h-fit-sub {
+        height: calc(100vh - 5.8rem)!important;
+    }
+    .h-92 {
+        height: 96% !important;
+    }
+
+.plan-list-table-row:hover {
+    background-color: #F5F7FF;
+}

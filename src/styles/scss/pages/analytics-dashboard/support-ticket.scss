@@ -1,0 +1,72 @@
+.support__ticket__outer {
+    @media(min-width:1200px){
+        height: calc(100vh - 85px) !important;
+    }
+
+  
+
+    .support__back__button {
+        width:30px;
+        height:30px;
+        background-color: #E6E8F6;
+        transition: all ease 0.5s;
+        &:hover {
+            background-color: #000;
+            transition: all ease 0.5s;
+            img {
+                filter: brightness(0) saturate(100%) invert(100%) sepia(87%) saturate(2%) hue-rotate(232deg) brightness(112%) contrast(101%);
+            }
+        }
+    }
+    .support__ticket__form__outer {
+        @media(min-width:1200px){
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+    }
+    .support__ticket__textarea {
+        .ql-container.ql-snow {
+            height: 115px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        .ql-toolbar.ql-snow {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+    }
+    .support__ticket__upload {
+        border:1px dashed #AFB5BF;
+    }
+    .support__ticket__button {
+        width:120px;
+        height:36px;
+        border:1px solid #98ADF4;
+        transition:all ease 0.5s;
+        span {
+            color:#645DF6;
+        }
+        &:hover {
+            transition:all ease 0.5s;
+            background-color: #98ADF4 !important;
+            span {
+                color: #fff;
+                transition:all ease 0.5s;
+            }
+            img {
+                transition:all ease 0.5s;
+                filter: brightness(0) saturate(100%) invert(100%) sepia(87%) saturate(2%) hue-rotate(232deg) brightness(112%) contrast(101%);
+            }
+        }
+    }
+    .ticket__trigger {
+        display: none;
+    }
+}
+
+.support__ticket__outer .support__ticket__button {
+    @media(max-width:567px){
+        width: 140px;
+    }
+
+}

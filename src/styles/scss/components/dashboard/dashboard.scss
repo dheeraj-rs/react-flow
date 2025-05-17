@@ -1,0 +1,27 @@
+.dashboard__h-fit {
+    height: calc(100vh - 6.07692rem)!important;
+}
+.chart{
+    height: 9px;
+    width: 9px;   
+    border-radius: 50%;
+    display: inline-block;
+    &-yellow{
+        background-color: #F4BF37;
+    }
+    &-blue{
+        background-color: #0087E9;
+    }
+    &-orange{
+        background-color: #FF8A00;
+    }
+    &-light-blue{
+        background-color: #5DD3ED;
+    }
+    &-dark-blue{
+        background-color: #2DA7FF;
+    }
+    &-violet{
+        background-color: #4271B9;
+    }
+  }

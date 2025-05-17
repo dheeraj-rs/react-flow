@@ -1,0 +1,208 @@
+.campaign-agent-tab-btn{
+    border:1px solid #dfdfdf;
+    color:#333;
+    background-color: #fff;
+    transition: all ease .5s;
+    &.active {
+        color:#fff;
+        background-color: #000;
+    }
+    // &:hover {
+    //     color: #333;
+    //     background-color: #fff;
+    //     border:1px solid #b7c1fe;
+    //     transition: all ease .5s;
+    // }
+    span{
+        background-color: #FF7E36;
+        width:7px;
+        height:7px;
+        position: absolute;
+        right: 7px;
+        top:50%;
+        transform: translateY(-50%);
+    }
+}
+
+.active-campaign-row {
+    border:1px solid #C3CEE9;
+    &:hover {
+        background-color: #EBEFFF;
+        border:1px solid #645DF6;
+        // .active-campaign-row-icon {
+        //     background-color: #fff;
+        // }
+    }
+    &.in-progress-row {
+        border:1px solid #E8AB89;
+        background-color: #F8EBE485;
+        // .active-campaign-row-icon {
+        //     background-color: #fff;
+        // }
+    }
+}
+
+.start-campaign-active-btn {
+    background-color: #000;
+    color:#fff;
+    border:1px solid #000;
+    transition:.5s;
+    &:hover {
+        background-color: #645DF6;
+        border:1px solid #645DF6;
+        transition:.5s;
+    }
+}
+
+.inactive-start-campaign-active-btn {
+    border:none;
+    color:#000;
+    background-color: #CFCFCF;
+    border:1px solid #CFCFCF;
+    pointer-events: none;
+}
+
+.inprogress-start-campaign-active-btn {
+    background-color: #645DF6;
+    border:1px solid #645DF6;
+    color:#fff;
+    opacity: .5;
+    pointer-events: none;
+}
+
+.active-campaign-row-icon {
+    display: block;
+    width:30px;
+    height:30px;
+    border-radius: 6px;
+    &.predictive-dailing-icon {
+        background-color: #d7d5ff;
+    }
+    &.voice-blast-icon {
+        background-color: #c6e5ff;
+    }
+    &.sms-campaign-icon {
+        background-color: #ffe2be;
+    }
+}
+
+.start-sms-campaign-active-btn {
+    background-color: #6174A4;
+    border:1px solid #6174A4;
+    color:#fff;
+    transition:.5s;
+    &:hover {
+        background-color: #645DF6;
+        border:1px solid #645DF6;
+        transition:.5s;
+    }
+}
+
+.inactive-sms-start-campaign-active-btn {
+    background-color: #fff;
+    border:1px solid #2D50C8;
+    color:#2D50C8;
+    transition:.5s;
+    &:hover {
+        background-color: #645DF6;
+        border:1px solid #645DF6;
+        color:#fff;
+        transition:.5s;
+    }
+}
+
+
+.inprogress-sms-start-campaign-active-btn {
+    background-color: #6174A4;
+    border:1px solid #6174A4;
+    color:#fff;
+    transition:.5s;
+    pointer-events: none;
+    &:hover {
+        background-color: #645DF6;
+        border:1px solid #645DF6;
+        transition:.5s;
+    }
+}
+
+.button__black__large {
+    background-color: #000;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    height: 38px;
+    transition: all .5s ease;
+    &:hover {
+        background-color: #645df6;
+        transition: all .5s ease;
+    }
+}
+
+.widget-open {
+    border-radius: 10px;
+}
+
+.campaign-agent-chart-icon:hover {
+    filter: brightness(0) saturate(100%) invert(46%) sepia(70%) saturate(6283%) hue-rotate(232deg) brightness(102%) contrast(93%);
+}
+
+
+.inprogress-loader {
+    animation: mymove 1s infinite;
+    animation-timing-function: linear;
+}
+
+
+
+
+@keyframes mymove {
+    100% {transform: rotate(360deg)}
+  }
+
+
+
+
+
+  @media(max-width:1199px){
+    .table-scroll {
+        overflow-x: scroll;
+    }
+  }
+
+  @media(max-width:767px){
+    .caller-detail-widget {
+        width:940px;
+        bottom: 20px !important;
+        right: 50% !important;
+        transform: translateX(50%);
+        width: 94% !important;
+    }
+
+    .caller-detail-widget-detail-section {
+        height: calc(100vh - 405px);
+        overflow-y: scroll;
+    }
+  }
+
+
+  @media(max-width:575px){
+   .predictive-dailing-widget {
+    width: 94% !important;
+    bottom: 20px !important;
+    right: 50% !important;
+    transform: translateX(50%);
+    }
+  }
+
+
+  @media(max-width:575px){
+   .campaign-agent-tab-btn-wrapper {
+     overflow-x: scroll;
+     &::-webkit-scrollbar {
+        display: none;
+     }
+    }
+    .campaign-agent-tab-btn-outer {
+        width:445px;
+    }
+  }  

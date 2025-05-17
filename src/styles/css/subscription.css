@@ -1,0 +1,95 @@
+@media (max-width: 1199px) {
+  .subscription-right-header {
+    flex-direction: column;
+    align-items: start !important;
+  }
+}
+.subscription-right-header .all_ststus_selectbox {
+  width: 120px;
+}
+@media (max-width: 600px) {
+  .subscription-right-header .all_ststus_selectbox {
+    width: calc(100% - 110px);
+  }
+}
+@media (max-width: 600px) {
+  .subscription-right-header .all_ststus_selectbox.downgrade__request__all_ststus_selectbox {
+    width: 100%;
+  }
+}
+.subscription-right-header .create__plan_button {
+  height: 38px;
+}
+@media (max-width: 600px) {
+  .subscription-right-header .create__plan_button {
+    display: none !important;
+  }
+}
+.subscription-right-header .search_plan_input {
+  width: 236px;
+}
+@media (max-width: 1199px) {
+  .subscription-right-header .search_plan_input {
+    width: calc(100% - 362px);
+  }
+}
+@media (max-width: 600px) {
+  .subscription-right-header .search_plan_input {
+    width: 100%;
+  }
+}
+@media (max-width: 1199px) {
+  .subscription-right-header .header-right {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .subscription-right-header .header-right {
+    flex-direction: column;
+    align-items: start !important;
+  }
+}
+.subscription-right-header .header-right.downgrade__request__header-right {
+  justify-content: space-between !important;
+}
+@media (max-width: 600px) {
+  .subscription-right-header .year_month_select_wrap {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .downgrade__request__table__outer {
+    overflow-x: scroll;
+  }
+}
+@media (max-width: 1199px) {
+  .downgrade__request__table__outer .downgrade__request__table {
+    width: 1000px;
+  }
+}
+.downgrade__request__table__outer .downgrade__request__table .downgrade__request__table__header {
+  border-bottom: 1px solid #c3cee9;
+}
+
+@media (max-width: 1199px) {
+  .addons__outer .addon__headder__input__wrapper {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 600px) {
+  .addons__outer .create__addon_modal__btn_outer {
+    width: 100% !important;
+  }
+}
+@media (max-width: 600px) {
+  .addons__outer .create__addon_modal__btn_outer button {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .button__mobile__same__outer button {
+    flex-basis: 50% !important;
+  }
+}/*# sourceMappingURL=subscription.css.map */

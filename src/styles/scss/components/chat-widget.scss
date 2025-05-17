@@ -1,0 +1,22 @@
+.chat__message {
+    border:1px solid #dee2e6;
+    height:62px;
+    padding: 10px;
+}
+
+.chat__input {
+    border:none;
+
+}
+
+.chat__input__wrapper {
+    width: calc(100% - 100px);
+}
+
+.chat__message .EmojiPickerReact {
+    width:240px !important;
+}
+
+.chat__input__file {
+    display: none;
+}

@@ -1,0 +1,33 @@
+.subscription__plan__tab {
+    background-color: #EBEFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    li {
+        flex-basis: 25%;
+        text-align: center;
+        &.active {
+            background-color: #645DF6;
+            color:#fff;
+        }
+    }
+}
+
+.subscription__tontent__table {
+    tr {
+        th {
+            border-bottom: 1px solid #C3CEE9;
+        }
+        td {
+            border-bottom: 1px solid #C3CEE9;
+        }
+    }
+}
+
+.live__badge {
+    background-color: #D2F2FF;
+}
+
+.inactive__badge {
+    color: #333;
+    background-color: #DFE5F5;
+}

@@ -1,0 +1,19 @@
+
+.filter__collapse__button[aria-expanded="true"] {
+    background-color: #645df6!important;
+    img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(298deg) brightness(111%) contrast(100%);
+    }
+}
+
+
+@media(min-width:992px){
+    .filter-date::after {
+        height:22px;
+        background-color: #C3CEE9;
+        width:1px;
+        position: absolute;
+        content:'';
+        right:-19px;
+    }
+}

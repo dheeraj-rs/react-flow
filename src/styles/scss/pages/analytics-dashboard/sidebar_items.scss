@@ -1,0 +1,77 @@
+.menu__icon {
+    width:25px;
+}
+
+.accodian__menu {
+    li {
+        margin-left: 14px;
+        cursor: pointer;
+        &:hover {
+            a {
+                color:#645df6!important;
+            }
+        }
+    }
+}
+
+.accodian__menu {
+    height:0;
+    overflow: hidden;
+    margin-top: 0 !important;
+    transition: all ease 0.5s;
+    &.active {
+        height:78.63px;
+        margin-top: 1rem !important;
+        transition: all ease 0.5s;
+    }
+}
+
+
+
+// .conditionalOpen {
+   
+//     display: block;
+//           -webkit-animation: conditionalOpen 0.4s normal forwards ease-in-out;
+//              -moz-animation: conditionalOpen 0.4s normal forwards ease-in-out;
+//                   animation: conditionalOpen 0.4s normal forwards ease-in-out;
+//           -webkit-transform-origin: 50% 0%;
+//              -moz-transform-origin: 50% 0%;
+//                   transform-origin: 50% 0%;
+//       }
+
+// .conditionalClose {
+   
+//     display: block;
+//       -webkit-animation: conditionalClose 0.4s normal forwards ease-in-out;
+//          -moz-animation: conditionalClose 0.4s normal forwards ease-in-out;
+//               animation: conditionalClose 0.4s normal forwards ease-in-out;
+//       -webkit-transform-origin: 100% 0%;
+//          -moz-transform-origin: 100% 0%;
+//               transform-origin: 100% 0%;
+//   }
+
+//   @-webkit-keyframes conditionalOpen {
+//     from { transform: scaleY(0) }
+//     to { transform: scaleY(1) }
+// }
+// @-moz-keyframes conditionalOpen {
+//     from { transform: scaleY(0) }
+//     to { transform: scaleY(1) }
+// }
+// @keyframes conditionalOpen {
+//     from { transform: scaleY(0) }
+//     to { transform: scaleY(1) }
+// }
+
+// @-webkit-keyframes conditionalClose {
+//     from { transform: scaleY(1) }
+//     to { transform: scaleY(1) }
+// }
+// @-moz-keyframes conditionalClose {
+//     from { transform: scaleY(1) }
+//     to { transform: scaleY(1) }
+// }
+// @keyframes conditionalClose {
+//     from { transform: scaleY(1) }
+//     to { transform: scaleY(1) }
+// }

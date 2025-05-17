@@ -1,0 +1,23 @@
+.report__edit__btn {
+    background-color: #EBEFFF;
+    border:1px solid #EBEFFF;
+    &.active {
+        border:1px solid #645DF6;
+        background-color: #fff;
+        color:#645DF6;
+        transition:all ease .5s;
+    }
+    &:hover {
+        background-color: #645DF6;
+        color:#fff;
+        transition:all ease .5s;
+    }
+}
+
+.report__edit__footer {
+    border-top:1px solid #c3cee9;
+}
+
+.edit__report__header{
+    border-bottom:1px solid #c3cee9;
+}

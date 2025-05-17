@@ -1,0 +1,25 @@
+#help__modal {
+    .modal-dialog {
+        max-width: 993px;
+        width:100%;
+    }
+    .custom__textarea {
+        position: relative;
+        textarea {
+            min-height: 118px;
+        }
+        img {
+            max-width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+    }
+    .custom__upload {
+        border: 1px dashed #AFB5BF;
+        button {
+            border:1px solid #645DF6;
+        }
+    }
+}

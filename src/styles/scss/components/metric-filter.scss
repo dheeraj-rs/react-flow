@@ -1,0 +1,62 @@
+.metric__filter__outer{
+    .metric__disabled {
+        color:#8190B7 !important;
+    }
+    .metric__tab__header {
+        border-bottom: 1px solid #C3CEE9;
+        padding: 10px 0;
+        li {
+            flex-basis: 33.333%;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            &.active {
+                color:#645DF6;
+                &::after {
+                    position: absolute;
+                    height:1px;
+                    background-color: #645DF6;
+                    content:'';
+                    left:0;
+                    bottom:-10px;
+                    width:100%;
+                }
+            }
+        }
+    }
+    .metric__filter__content {
+        li {
+            &:hover {
+                background-color: #EBF0F4;
+                color: #645DF6;
+            }
+            &.phone__availability {
+                color: #9CA3AF;
+            }
+        }
+    }
+}
+
+.metric__filter__calls__outer{
+    .metric__tab__header {
+        border-bottom:none;
+        position: relative;
+        &::after {
+            height:1px;
+            width:calc(100% - 20px);
+            content:'';
+            position: absolute;
+            background-color: #C3CEE9;
+            top:50%;
+            left:0;
+            transform: translateY(-50%);
+        }
+        li {
+            background-color: #fff;
+            padding-right: 10px;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+        }
+    }
+}

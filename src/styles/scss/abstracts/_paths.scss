@@ -1,0 +1,94 @@
+// Base paths
+$base-path: "../../../../public";
+$assets-path: "#{$base-path}/assets";
+$icons-path: "#{$base-path}/svg/icons";
+$fonts-path: "#{$base-path}/fonts";
+
+// Login related assets
+$login-bg: "#{$assets-path}/login-bg.jpg";
+$login-support-bg: "#{$assets-path}/login-support-bg.jpg";
+$login-voice-bg: "#{$assets-path}/login-voice-bg.jpg";
+
+// Channel backgrounds
+$all-channel: "#{$assets-path}/all-channel.png";
+$whatsapp-bg: "#{$assets-path}/whatsapp-bg.svg";
+$instagram-bg: "#{$assets-path}/instagram-bg.svg";
+$telegram-bg: "#{$assets-path}/telegram-bg.svg";
+$messenger-bg: "#{$assets-path}/messenger-bg.svg";
+
+// Icon states
+$switch-inactive: "#{$icons-path}/switch-inactive.svg";
+$switch-active: "#{$icons-path}/switch-active.svg";
+$radio-button-check-active: "#{$icons-path}/radio-button-check-active.svg";
+$check-blue: "#{$icons-path}/check-blue.svg";
+$drop-down: "#{$icons-path}/drop-down.svg";
+
+// UI Elements
+$search-left: "#{$assets-path}/search-left.svg";
+$close-toggle: "#{$assets-path}/close-toggle.svg";
+$active-toggle: "#{$assets-path}/active-toggle.svg";
+$dial-bg: "#{$assets-path}/dial-bg.svg";
+$ok-btn: "#{$assets-path}/ok-btn.svg";
+
+// Profile & User
+$avatar: "#{$assets-path}/avatar.png";
+$avathar-header: "#{$assets-path}/avathar-header.svg";
+$conv-icon: "#{$assets-path}/conv-icon.svg";
+$people-black: "#{$assets-path}/people-black.svg";
+$people-active: "#{$assets-path}/people-active.svg";
+
+// Conversation Icons
+$conversation-black: "#{$assets-path}/conversation-black.svg";
+$conversation-active: "#{$assets-path}/conversation-active.svg";
+$contact-search: "#{$assets-path}/contact-search.svg";
+$contact-search-white: "#{$assets-path}/contact-search-white.svg";
+$contact-create: "#{$assets-path}/contact-create.svg";
+$contact-create-white: "#{$assets-path}/contact-create-white.svg";
+
+// Fonts
+$twemoji-mozilla: "#{$fonts-path}/twemoji-mozilla.ttf";
+
+// Call Flow Icons
+$call-group-white: "#{$assets-path}/call-group-white.svg";
+$call-group-add-white: "#{$assets-path}/call-group-add-white.svg";
+$call-group-sms-white: "#{$assets-path}/call-group-sms-white.svg";
+$call-setting: "#{$assets-path}/call-setting.svg";
+$call-setting-blue: "#{$assets-path}/call-setting-blue.svg";
+
+// Settings Icons
+$sms-settings: "#{$assets-path}/sms-settings.svg";
+$sms-settings-blue: "#{$assets-path}/sms-settings-blue.svg";
+$agent-settings: "#{$assets-path}/agent-settings.svg";
+$agent-settings-blue: "#{$assets-path}/agent-settings-blue.svg";
+
+// Other UI Elements
+$profile-bg: "#{$assets-path}/profile-bg.svg";
+$green-round: "#{$assets-path}/green-round.svg";
+$fund-banner: "#{$assets-path}/fund-banner.svg";
+$line: "#{$assets-path}/line.svg";
+$admin-img: "#{$assets-path}/admin-img.svg";
+$down-arrow-dropdown: "#{$assets-path}/down-arrow-dropdown.svg";
+$save-ribbon: "#{$assets-path}/save-ribbon.svg";
+$ribbon-dark: "#{$assets-path}/ribbon-dark.svg";
+
+// Chat Related
+$ChatsBlack: "#{$assets-path}/ChatsBlack.svg";
+$Chats: "#{$assets-path}/Chats.svg";
+$Articleblack: "#{$assets-path}/Articleblack.svg";
+$ArticleBlue: "#{$assets-path}/ArticleBlue.svg";
+$button-close-white: "#{$assets-path}/button-close-white.svg";
+
+// Additional Icons
+$holidays: "#{$assets-path}/holidays.svg";
+$holidays-blue: "#{$assets-path}/holidays-blue.svg";
+$work-hours: "#{$assets-path}/work-hours.svg";
+$work-hours-blue: "#{$assets-path}/work-hours-blue.svg";
+$after-dots: "#{$assets-path}/after-dots.svg";
+$campaign-banner: "#{$assets-path}/campaign-banner.svg";
+$drpdwn: "#{$assets-path}/drpdwn.svg";
+$drop-end: "#{$assets-path}/drop-end.svg";
+$corner-img: "#{$assets-path}/corner-img.svg";
+$resize-icon: "#{$base-path}/analytics__images/resize-blue.svg";
+$shop-lady: "#{$assets-path}/shop-lady.svg";
+$grid-line: "#{$assets-path}/grid-line.svg";
+$dot-grid: "#{$base-path}/assets/call-flows-icons/dot-grid.svg";

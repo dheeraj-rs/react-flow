@@ -1,0 +1,21 @@
+#share__offcanvas {
+    width:505px;
+    
+    .share__item__list label::before {
+        margin: 0;
+    }
+    
+    .share__canvas__button__outer {
+        border-top:1px solid #C3CEE9;
+    }
+    
+    .share__item__list li.active {
+        background-color: #EBF0F4;
+    }
+    
+    .selectall__checkbox label {
+        color: #2D50C8 !important;
+    }
+}
+
+

@@ -1,0 +1,40 @@
+.plan__detail__outer .subscription__icon__wrap {
+  height: 65px;
+  width: 65px;
+}
+.plan__detail__outer .unpublish__btn {
+  height: 30px;
+  border: 1px solid #8190B7;
+  color: #000;
+  background-color: #fff;
+  transition: all ease 0.5s;
+}
+.plan__detail__outer .unpublish__btn:hover {
+  background-color: #8190B7;
+  color: #fff;
+  transition: all ease 0.5s;
+}
+.plan__detail__outer .plan__features ul {
+  padding-left: 15px;
+}
+.plan__detail__outer .plan__features ul li {
+  list-style: disc;
+}
+.plan__detail__outer .plan__detail__table__header__search__wrap {
+  width: 259px;
+}
+@media (max-width: 700px) {
+  .plan__detail__outer .plan__detail__table__header__search__wrap {
+    width: calc(100% - 58px);
+  }
+}
+@media (max-width: 700px) {
+  .plan__detail__outer .plan__detail__table__header {
+    flex-direction: column;
+  }
+}
+@media (max-width: 700px) {
+  .plan__detail__outer .plan__detail__table__header__right {
+    margin-top: 15px;
+  }
+}/*# sourceMappingURL=plan-detail.css.map */

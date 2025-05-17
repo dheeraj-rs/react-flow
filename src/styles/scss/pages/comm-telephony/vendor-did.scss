@@ -1,0 +1,30 @@
+.export-option-button {
+    background-color: #ebefff;
+    width:38px;
+    height:38px;
+    border-radius: 5px;
+    justify-content:center;
+    align-items:center;
+    border:1px solid #ebefff;
+    &:hover {
+        background-color: #645df6;
+        border:1px solid #645df6;
+        img {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2849%) hue-rotate(146deg) brightness(120%) contrast(109%);
+        }
+    }
+}
+
+.responsive-table table tr:hover {
+    background-color: #f5f7ff;
+}
+
+@media(max-width:1199px){
+    .responsive-table {
+        overflow-x: scroll;
+        padding-right:6px;
+        table {
+            width:1000px;
+        }
+    }
+}

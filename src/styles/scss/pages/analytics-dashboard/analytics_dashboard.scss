@@ -1,0 +1,133 @@
+html,
+body {
+    overflow: visible !important;
+}
+
+.main__wrapper {
+    width:100%;
+    padding-left: 66px;
+    padding-top: 66px;
+    @media(max-width:991px){
+        padding-left: 0;
+    }
+}
+
+.main__wrapper__inner {
+    padding-top:10px;
+}
+
+.analytics__sidebar__back__link {
+    width:30px;
+    height:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    &:hover {
+        background-color: #000 !important;
+        transition: all ease 0.5s;
+        img {
+            filter: brightness(0) saturate(100%) invert(97%) sepia(100%) saturate(13%) hue-rotate(217deg) brightness(104%) contrast(104%);
+        }
+    }
+    img {
+        width: 7.24px;
+    }
+}
+
+
+.analytics__main__header__input__wrap {
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+.analytics__main__header__search__input {
+    width:264px;
+}
+
+.stop__share__close__icon {
+    position: absolute;
+    right: 17px;
+    top: 17px;
+}
+
+
+.analytics__main__header__select {
+    width:160px;
+    @media(max-width:991px){
+        display: none;
+    }
+}
+
+
+
+@media(min-width:1024px){
+    //scroll custom
+.desktop-scroll-custom {
+    // visibility: hidden;
+    overflow-y:scroll;
+    &:hover,
+    &:focus {
+        visibility: visible;
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            height: 5px !important;
+            border-radius: 10px;
+            background: #b7bdcb;
+            box-shadow: none !important;
+        }
+    }
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 4px;
+        -webkit-overflow-scrolling: touch
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        margin-bottom: 20px;
+        margin-top:10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        outline: transparent;
+        height: 5px !important;
+        border-radius: 10px;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none !important;
+       
+    }
+}
+.analytics__main__wrap {
+    height:calc(100vh - 85px);
+}
+}
+
+.analytics__main__header__wrap {
+    @media(max-width:740px){
+        flex-wrap: wrap !important;
+    }
+    .analytics__main__header__input__wrap {
+        @media(max-width:740px){
+           width: 100% !important;
+           margin-top: 15px;
+        }
+    }
+    .analytics__main__header__search__input {
+        @media(max-width:740px){
+            width: 100% !important;
+            margin-top:20px;
+         }
+    }
+}
+
+.call__report__list__item {
+    box-shadow:none !important;
+    border:1px solid #d1d3f0;
+  }

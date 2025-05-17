@@ -1,0 +1,36 @@
+.campaign-agent-tab-btn {
+    background-color: #EBF0F4;
+    border: 1px solid #EBF0F4;
+    color: #000;
+    transition: all .5s ease;
+}
+
+.campaign-agent-tab-btn.active, .campaign-agent-tab-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.subscription-approval-tab-btn {
+    background-color: #EBF0F4;
+    border: 1px solid #EBF0F4;
+    color: #000;
+    transition: all .5s ease;
+}
+
+.subscription-approval-tab-btn.active, .subscription-approval-tab-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+.kyc-approval-tab-btn {
+    background-color: #EBF0F4;
+    border: 1px solid #EBF0F4;
+    color: #000;
+    transition: all .5s ease;
+}
+
+.kyc-approval-tab-btn.active, .kyc-approval-tab-btn:hover {
+    background-color: #000;
+    color: #fff;
+}

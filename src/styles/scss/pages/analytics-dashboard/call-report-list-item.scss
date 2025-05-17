@@ -1,0 +1,119 @@
+.call__report__list__item_title_wrap {
+    width: 220px;
+    &.my__report__list__item__inner {
+        width:280px;
+    }
+    
+}
+
+
+.call__report__list__item {
+    border: 1px solid #d1d3f0;
+    box-shadow: none!important;
+    &:hover {
+        border:1px solid #645DF6;
+    }
+    .dropend .dropdown-toggle-chart:after {
+        right: 10px;
+        position: absolute;
+    }
+}
+
+
+.shared__to__team__list__dropdown {
+    .dropdown-menu{
+        width:348px;
+    }
+    @media(max-width:767px){
+        .dropdown-menu{
+            width:250px;
+        }
+    }
+}
+
+
+
+.star__icon{
+    filter: brightness(0) saturate(100%) invert(35%) sepia(68%) saturate(910%) hue-rotate(351deg) brightness(110%) contrast(94%);
+}
+
+
+@media(max-width:740px){
+    .call__report__list__item {
+        flex-wrap: wrap !important;
+    }
+    .call__report__list__item__inner:nth-child(1){
+        flex-basis: 100%;
+    }
+    .call__report__list__item__inner:nth-child(2){
+        padding-left: 28px;
+    }
+    .call__report__list__item__inner:nth-child(3){
+        padding-left: 28px;
+    }
+    .shared__to__teams__inner {
+        flex-wrap: wrap !important;
+    }
+    .shared__to__teams__inner:nth-child(1){
+        flex-basis: 100%;
+    }
+    .shared__to__teams__inner:nth-child(2){
+        flex-basis: 100%;
+        padding-left: 28px;
+    }    
+    .shared__to__teams__inner:nth-child(3){
+        padding-left: 28px;
+    }  
+
+
+}
+
+/* Container for centering the star */
+.star-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Star shape */
+  .star {
+    width: 20px; /* Set the width of the star */
+    height: 20px; /* Set the height of the star */
+    background-color: #b1b9c6; /* Initial color */
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    transition: background-color 0.3s ease-in-out;
+  }
+  /* Pseudo-element for border effect */
+// .star::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: transparent;
+//     border: 5px solid #D16414; /* Border color and width */
+//     clip-path: inherit; /* Inherit the star shape */
+//     box-sizing: border-box; /* Ensure border size is included in dimensions */
+//   }
+  /* Filled star on hover */
+  .star:hover {
+    background-color: #f5a600; /* Color on hover */
+  }
+  /* Active star color */
+.star.active {
+    background-color: #f5a600; /* Color when clicked */
+  }

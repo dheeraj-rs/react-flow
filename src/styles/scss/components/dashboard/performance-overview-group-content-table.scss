@@ -1,0 +1,14 @@
+.performance__overview__group__content__table__outer {
+    @media(max-width:1720px){
+        overflow-x: scroll;
+     }
+    .performance__overview__group__content__table {
+         @media(max-width:1720px){
+            width:1720px;
+         }
+        td {
+            border-bottom: 1px solid #C3CEE9;
+            padding: 12px 10px !important;
+        }
+    }  
+}

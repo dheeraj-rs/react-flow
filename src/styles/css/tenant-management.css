@@ -1,0 +1,8 @@
+.tenant-content-height {
+    height: calc(100vh - 142px) !important;
+}
+
+.tenant-content-padding {
+    padding: 16px !important;
+    padding-top: 0 !important;
+}

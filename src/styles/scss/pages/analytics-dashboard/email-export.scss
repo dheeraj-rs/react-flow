@@ -1,0 +1,27 @@
+#export__email__modal {
+    .export__type{
+        button {
+            transition: all ease 0.5s;
+            border:1px solid #C4CDE0;
+            &:hover {
+                transition: all ease 0.5s;
+                background-color: #000;
+                color:#fff;
+                border:1px solid #000;
+                img {
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(337deg) brightness(103%) contrast(101%);
+                }
+            }
+        }
+    }
+    .selected__email__wrap {
+        li {
+            background-color: #d1e2ff;
+        }
+    }
+    .email__modal__input {
+        height:40px;
+        line-height: 40px;
+        padding: 0 15px;
+    }
+}

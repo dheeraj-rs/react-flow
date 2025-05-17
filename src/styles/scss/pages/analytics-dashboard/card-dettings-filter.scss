@@ -1,0 +1,290 @@
+#card-settings-section {
+    border-left: 1px solid #C3CEE9;
+    padding-left: 0;
+    background: #fff;
+    .filter__edit__header {
+        border-bottom: 1px solid #C3CEE9;
+    }
+    .custom__accordian {
+        .custom__accordian__item {
+            border-bottom: 1px solid #C3CEE9;
+        }
+    }
+    .custom__accodian__header {
+        .green__tick {
+            display: block !important;
+        }
+    }
+   .color__picker {
+    height:0;
+    width:0;
+    opacity: 0;
+   }
+   .background__display__wrapper {
+    width:44px;
+    height:19px;
+   }
+   .background__display {
+     width:100%;
+     height:100%;
+     background: #FFE2AB;
+   }
+   .propotion__filter{
+      li {
+        border:1px solid #AFB5BF;
+        &:hover {
+            border:1px solid #E9F1FE;
+            background-color: #E9F1FE;
+            color:#645DF6;
+        }
+        &.active {
+            border:1px solid #E9F1FE;
+            background-color: #E9F1FE;
+            color:#645DF6;
+        }
+      }
+
+      a {
+        border:1px solid #AFB5BF;
+        padding: 3px 7px !important;
+        font-size: 13px !important;
+        &:hover {
+            border:1px solid #E9F1FE;
+            background-color: #E9F1FE;
+            color:#645DF6;
+        }
+        &.active {
+            border:1px solid #E9F1FE;
+            background-color: #E9F1FE;
+            color:#645DF6;
+        }
+      }
+      &.canvas_propotion__filter {
+        li {
+            min-width:38px;
+        }
+    }
+   }
+   .range__wrap {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     justify-content:space-between;
+     .range__input {
+        width:55px;
+        height:30px;
+        border-radius: 5px;
+        border: 1px solid #AFB5BF;
+        padding: 10px;
+        font-size: 13px;
+     }
+     .range {
+        flex-basis: 100%;
+     }
+   }
+   .text__color {
+    background: #333333;
+   }
+   .border__color {
+    background: #C3CEE9;
+   }
+   .position__radius__outer {
+        .position__radius__inner {
+            &:nth-child(1) {
+                flex-basis: 125px;
+            }
+            &:nth-child(2) {
+                flex-basis: 61px;
+            }
+            &:nth-child(3) {
+                flex-basis: 61px;
+            }
+        }
+   }
+   .reset__report__button {
+      border:1px solid #645DF6;
+      color:#645DF6;
+      transition: all ease 0.5s;
+      &:hover {
+        transition: all ease 0.5s;
+        background: #645DF6 !important;
+        color: #fff;
+      }
+   }
+   .background__display__wrapper {
+    input {
+      
+        width:44px;
+        height:19px;
+    }
+  }
+   .value__items__wrap {
+    &:nth-child(1) {
+        flex-basis: calc(100% - 171px);
+    }
+    &:nth-child(2) {
+        flex-basis: 77px;
+    }
+    &:nth-child(3) {
+        flex-basis: 65px;
+    }
+    &:nth-child(4) {
+        flex-basis: 15px;
+    }
+   }
+
+
+}
+.custom-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #645DF6 !important; /* Track background color */
+    border-radius: 25px;
+    border: 1px solid #645DF6 !important;
+}
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #645DF6 !important; /* Thumb background color */
+    cursor: pointer;
+    margin-top: -9px; /* Adjust thumb position to align with the track */
+}
+.custom-range:focus::-webkit-slider-runnable-track {
+    background: #645DF6 !important; /* Track background color on focus */
+}
+.custom-range::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #645DF6 !important;;
+    border-radius: 25px;
+    border: 1px solid #645DF6 !important;;
+}
+.custom-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #645DF6 !important;
+    cursor: pointer;
+}
+.custom-range::-ms-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #645DF6 !important;;
+    border-color: #645DF6 !important;;
+    color: #645DF6 !important;;
+}
+.custom-range::-ms-fill-lower {
+    background: #645DF6 !important;;
+    border: 0.2px solid #645DF6 !important;;
+}
+.custom-range::-ms-fill-upper {
+    background: #645DF6 !important;;
+    border: 0.2px solid #645DF6 !important;;
+}
+.custom-range::-ms-thumb {
+    width: 25px;
+    height: 25px;
+    background: #645DF6 !important;
+    cursor: pointer;
+    margin-top: 0px; /* Adjust thumb position */
+}
+
+.metric__dropdown__menu {
+    width:268px;
+}
+
+.metric__drop__disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@media(min-width:992px) and  (max-width:1366px){
+    .value__items__wrap:nth-child(1) {
+        min-width: 95px;
+    }
+    .basic__advanced__dropdown_wrap {
+        flex-wrap: wrap !important;
+    }
+    .background__and__text__color h4 {
+        width: 90px;
+    }
+    .color__text__line__outer label {
+        width: 40px;
+    }
+
+}
+
+@media(min-width:1133px) and (max-width:1133px){
+    .basic__advanced__dropdown_wrap {
+        flex-wrap: wrap !important;
+    }
+    .background__and__text__color h4 {
+        width: 90px;
+    }
+    .color__text__line__outer label {
+        width: 40px;
+    }
+    .conditions__ipad {
+        flex-wrap: wrap !important;
+    }
+    #card-settings-section .value__items__wrap:first-child {
+        flex-basis: 219px;
+    }
+}
+
+
+
+
+@media(min-width:992px) and (max-width:1372px) {
+    .background__and__text__color .col-sm-6 {
+        flex-basis: 100% !important;
+        margin-top: 10px;
+    }
+    .color__text__line__outer .col-sm-4 {
+        flex-basis: 100% !important;
+        margin-top: 10px !important;
+    }
+    .color__text__line__outer label {
+        width: 40px;
+    }
+}
+
+    
+@media(max-width:991px){
+    .custom__accordian.common__card__settings {
+        width: calc(100% - 24px);
+        margin-left: 11px;
+        height: calc(100vh - 204px);
+        overflow-y: scroll;
+    }  
+    #card-settings-section {
+        border-left: 0;
+    }
+    ul.custom__accordian.individual__card__settings {
+        padding: 0 11px;
+        padding-bottom: 20px;
+        height: calc(100vh - 199px);
+        overflow-y: scroll;
+    }
+    .background__and__text__color h4 {
+        width: 90px;
+    }
+    .color__text__line__outer label {
+        width: 40px;
+    }
+}
+
+
+
+@media(max-width:575px){
+        .custom__accordian.common__card__settings {
+        height: calc(100vh - 284px);
+    } 
+    ul.custom__accordian.individual__card__settings {
+        height: calc(100vh - 287px);
+    }
+}

@@ -1,0 +1,48 @@
+#call__flow__template__modal{
+    .modal-dialog {
+        max-width:760px;
+    }
+    .btn-close {
+        position: absolute;
+        top:15px;
+        right:15px;
+    }
+    .build__template__item {
+        border:1px solid #ccc;
+        &.active {
+            border:1px solid #645DF6;
+        }
+    }
+    .call__flow__template__item {
+        border: 1px solid rgb(139 144 156 / 41%);
+        box-shadow: 0 1px 4px #00000047;
+        &:hover {
+            background-color: #E9F1FE;
+            border: 1px solid #BBB9F8;   
+        }
+        &.active {
+            background-color: #E9F1FE;
+            border: 1px solid #BBB9F8; 
+        }
+
+    }
+    .template__select__button {
+        background-color: #fff;
+        border: 1px solid #645df6;
+        color: #645df6;
+        font-size: 13px;
+        height: 30px;
+        width: 80px;
+        &.active {
+            color:#fff;
+            background-color: #645DF6;
+        }
+    }
+    .cursor-pointer.template__modal__back {
+        width: 22px;
+    }
+    .call__flow__template__item__wrapper {
+        max-height:60vh;
+        padding-right: 5px;
+    }
+}

@@ -1,0 +1,121 @@
+.boxed-icon {
+    align-items: center;
+    background: #e6e8f7;
+    border-radius: 5px;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    margin-right: 8px;
+    padding: 8px;
+    width: 30px;
+    border:none;
+}
+
+.boxed-icon:hover {
+    background: #000!important;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.boxed-icon:hover img {
+    filter: invert(1) sepia(0) saturate(1) hue-rotate(0deg) brightness(5);
+}
+
+.tenant-tab-btn {
+    background-color: #EBF0F4;
+    border: 1px solid #EBF0F4;
+    color: #333;
+    transition: all .5s ease;
+}
+
+.tenant-tab-btn.active {
+    background-color: #000;
+    border:1px solid #000;
+    color: #fff;
+}
+
+.basic-detail-section {
+    position:relative
+}
+
+.basic-detail-section::after {
+    position:absolute;
+    content:'';
+    background-color: #00000030;
+    height:100%;
+    right:0;
+    top:0;
+    width:1px;
+}
+
+.campaign-agent-tab-btn {
+    background-color: #EBF0F4;
+    border: 1px solid #EBF0F4;
+    color: #000;
+    transition: all .5s ease;
+}
+
+.campaign-agent-tab-btn.active, .campaign-agent-tab-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.responsive-table table tr:hover {
+    background-color: #f5f7ff;
+}
+
+.tenant-notes:hover a {
+    color:#645df6 !important;
+}
+
+.tenant-notes:hover img {
+    filter: brightness(0) saturate(100%) invert(63%) sepia(94%) saturate(6521%) hue-rotate(232deg) brightness(102%) contrast(93%);
+}
+
+.tenant-filter-outer {
+    width:48px;
+    text-align: right;
+}
+
+.configuration-search {
+    width:100%;
+}
+
+.close-button img {
+    width: 20px;
+}
+
+.close-button:hover img {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7481%) hue-rotate(212deg) brightness(87%) contrast(93%);
+}
+
+@media(min-width:992px){
+    .configuration-search {
+        width:233px;
+    }
+}
+
+@media(max-width:1199px){
+    .responsive-table {
+        overflow-x: scroll;
+        padding-right:6px;
+        table {
+            width:1000px;
+        }
+    }
+}
+
+@media(max-width:991px){
+    
+.basic-detail-section::after {
+    display: none;
+}
+
+}
+
+@media(max-width:767px){
+    .user-add-button {
+        width:100%;
+    }
+}
+

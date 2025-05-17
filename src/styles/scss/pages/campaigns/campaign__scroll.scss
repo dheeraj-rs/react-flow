@@ -1,0 +1,109 @@
+
+
+.campaign__body, html {
+    @media(max-width:1300px){
+            overflow: visible !important;
+    }
+}
+
+.voice-blast-list-main-row {
+        @media(max-width:1300px){
+            height:auto !important;
+    }
+}
+
+
+
+//scroll custom
+.campaign-scroll-custom {
+    // visibility: hidden;
+   @media(min-width:1300px){
+    overflow-y:scroll;
+    &:hover,
+    &:focus {
+        visibility: visible;
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            height: 5px !important;
+            border-radius: 10px;
+            background: #b7bdcb;
+            box-shadow: none !important;
+        }
+    }
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 4px;
+        -webkit-overflow-scrolling: touch
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        margin-bottom: 20px;
+        margin-top:10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        outline: transparent;
+        height: 5px !important;
+        border-radius: 10px;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none !important;
+       
+    }
+   }
+   @media(max-width:1299px){
+    height: auto !important;
+   }
+}
+
+// .campaign-white-outer {
+//     @media(max-width:1300px){
+//         height:auto !important;
+//     }
+// }
+// .voice-blast-wrapper-inner {
+//     @media(max-width:1300px){
+//         height:auto !important;
+//     }
+// }
+
+// .voice-blast-wrapper {
+//     @media(max-width:1300px){
+//         height:auto !important;
+//     }
+// }
+.apexcharts-legend-text{
+    font-family: 'Poppins' !important;
+}
+
+input[type='date'] {
+    position: relative;
+}
+
+input[type=date]:after {
+    background-image: url(../../../../../public/gsoft-admin-invoice-and-payment/calendar.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    content: "";
+    height: 25px;
+    position: absolute;
+    right: 6px;
+    top: 5px;
+    width: 25px;
+    background-color: #fff;
+    pointer-events: none;
+}
+
+@media(max-width:991px){
+    .modal-body.p-23px {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+}

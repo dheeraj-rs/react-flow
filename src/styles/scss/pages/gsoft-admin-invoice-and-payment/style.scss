@@ -1,0 +1,173 @@
+.configure-list .check-box label::before {
+    margin-right: 0;
+}
+
+.configure-list {
+    border:1px solid #C3CEE9;
+    cursor:pointer;
+}
+
+.configure-list .edit-btn:hover img {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(94%) saturate(3665%) hue-rotate(231deg) brightness(99%) contrast(95%);
+}
+
+.configure-list:hover {
+    background-color: #EBF0F4;
+    border:1px solid #EBF0F4;
+}
+
+.responsive-table table tr:hover {
+    background-color: #f5f7ff;
+}
+
+.invoice-sub-menu {
+    background-color: #F5F8FF;
+}
+
+.Accounts.active {
+    border-radius: 0 !important;
+    background-color: #f5f8ff !important;
+    font-weight:500 !important;
+    color:#333333 !important;
+    cursor: pointer;
+}
+
+.Accounts:after {
+    background-image: url(../../../../../public/call-flows-hours/CaretDown.svg);
+    content: "";
+    height: 14px;
+    position: absolute;
+    width: 14px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.edit-template-invoice-logo:hover {
+    border:1px dashed #645df6 !important;
+    background-color: #f1f0ff !important;
+    a {
+        color:#645df6 !important;
+    }
+}
+
+.logo-upload-div-modal:hover {
+    background-color: #f1f0ff !important;
+}
+
+.archived-invoice-btn:hover {
+    background-color: #396BB2 !important;
+}
+
+
+
+.accounts-table > tbody{
+    vertical-align: middle !important;
+}
+
+.invoice-template-wrap {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+}
+
+
+
+
+
+
+
+@media(max-width:1199px){
+    .responsive-table {
+        overflow-x: scroll;
+        padding-right:6px;
+        table {
+            width:1000px;
+        }
+    }
+}
+
+
+@media(max-width:991px){
+    .settings-tab-outer {
+       overflow-x: scroll;
+    }
+
+    .settings-tab-outer::-webkit-scrollbar {
+        display: none;
+      }
+    .settings-tab {
+        width:743px;
+    }
+}
+
+
+@media(min-width:760px){
+   body .header-add-fund-options {
+    width:220px !important
+   }
+}
+
+
+
+
+
+// range stlye
+
+.custom-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #645DF6 !important; /* Track background color */
+    border-radius: 25px;
+    border: 1px solid #645DF6 !important;
+}
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #645DF6 !important; /* Thumb background color */
+    cursor: pointer;
+    margin-top: -9px; /* Adjust thumb position to align with the track */
+}
+.custom-range:focus::-webkit-slider-runnable-track {
+    background: #645DF6 !important; /* Track background color on focus */
+}
+.custom-range::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #645DF6 !important;;
+    border-radius: 25px;
+    border: 1px solid #645DF6 !important;;
+}
+.custom-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #645DF6 !important;
+    cursor: pointer;
+}
+.custom-range::-ms-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #645DF6 !important;;
+    border-color: #645DF6 !important;;
+    color: #645DF6 !important;;
+}
+.custom-range::-ms-fill-lower {
+    background: #645DF6 !important;;
+    border: 0.2px solid #645DF6 !important;;
+}
+.custom-range::-ms-fill-upper {
+    background: #645DF6 !important;;
+    border: 0.2px solid #645DF6 !important;;
+}
+.custom-range::-ms-thumb {
+    width: 25px;
+    height: 25px;
+    background: #645DF6 !important;
+    cursor: pointer;
+    margin-top: 0px; /* Adjust thumb position */
+}

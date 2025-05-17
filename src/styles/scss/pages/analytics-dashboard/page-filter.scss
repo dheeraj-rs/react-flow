@@ -1,0 +1,17 @@
+// .basic__filter__select {
+//     min-height: 38px;
+// }
+.filter__input {
+    height: 26px;
+    width:73px;
+}
+.filter__add__button {
+    width:27px;
+    height:27px;
+    cursor: pointer;
+}
+.basic__filter__select {
+    .dropdown-item {
+        cursor: pointer;
+    }
+}

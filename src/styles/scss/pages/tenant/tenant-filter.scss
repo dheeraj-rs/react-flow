@@ -1,0 +1,26 @@
+.tenant-filter__button {
+    width:38px;
+    height:38px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 0;
+    border:1px solid #b2bcc8;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition:all ease 0.5s;
+}
+
+.tenant-filter__dropdown {
+    width:230px;
+}
+
+.tenant-filter__button:hover {
+    background-color: #645df6;
+    transition:all ease 0.5s;
+}
+
+.tenant-filter__button:hover .tenent-filter__filter-icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(31deg) brightness(107%) contrast(102%);
+    transition:all ease 0.5s;
+}

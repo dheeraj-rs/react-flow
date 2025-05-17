@@ -1,0 +1,122 @@
+.card__tab__btn {
+    background-color: #EBEFFF;
+    border:1px solid #EBEFFF;
+    &.active {
+        border:1px solid #645DF6;
+        background-color: #fff;
+        color:#645DF6;
+        transition:all ease .5s;
+    }
+    &:hover {
+        background-color: #645DF6;
+        color:#fff;
+        transition:all ease .5s;
+    }
+
+}
+
+.legent__outer {
+    border-bottom:1px solid #c3cee9;
+    border-top:1px solid #c3cee9;
+}
+
+.custom__accordian__item {
+    border-bottom:1px solid #c3cee9;
+}
+
+.reset__btn {
+    border:1px solid #2D50C8;
+    color: #2D50C8;
+    transition:all ease .5s;
+    &:hover {
+        background-color: #2D50C8;
+        color: #fff;
+        transition:all ease .5s;
+    }
+}
+
+.condition__label {
+    border-bottom: 1px solid #c3cee9;
+    padding-bottom: 7px;
+    position:relative;
+    margin-bottom: 10px;
+    &::after {
+        background-color: #c3cee9;
+        bottom: -1px;
+        content: "";
+        height: 1px;
+        position: absolute;
+        right: -27px;
+        width: 30px;
+    }
+    &.no__after {
+        &::after {
+            display: none;
+        }
+    }
+}
+.background__display__wrapper {
+    input {
+      
+        width:44px;
+        height:19px;
+    }
+  }
+
+  .color__picker {
+    height:0;
+    width:0;
+    opacity: 0;
+   }
+   .background__display__wrapper {
+    width:44px;
+    height:19px;
+   }
+
+   .range__wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content:space-between;
+    .range__input {
+       width:55px;
+       height:30px;
+       border-radius: 5px;
+       border: 1px solid #AFB5BF;
+       padding: 10px;
+       font-size: 13px;
+    }
+    .range {
+       flex-basis: 100%;
+    }
+  }
+
+  .card__background h4 {
+    width:100px;
+  }
+
+  .legent__outer label {
+    width:100px !important;
+}
+
+  @media(max-width:1372px){
+    .legent__outer .col-lg-6 {
+        flex-basis: 100% !important;
+        margin-bottom: 15px !important;
+    }
+
+    .show__title__legent .col-xl-6 {
+        flex-basis: 100% !important;
+        margin-bottom: 15px !important;
+    }
+  }
+
+@media (max-width:575px){
+    .card__tab__content__scroll {
+        height:142vh;
+    }
+
+    .card__tab__content__scroll__outer {
+        height: 100vh;
+    }
+}

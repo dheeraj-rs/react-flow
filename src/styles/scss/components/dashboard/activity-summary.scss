@@ -1,0 +1,53 @@
+.activity__summary__outer {
+    .refresh__btn {
+        width:30px;
+        height:30px;
+        border-radius: 6px;
+        background-color: #EBF0F4;
+        transition:all ease 0.5s;
+        &:hover {
+            background-color: #000;
+            transition:all ease 0.5s;
+            img {
+                filter: brightness(0) saturate(100%) invert(91%) sepia(100%) saturate(32%) hue-rotate(256deg) brightness(107%) contrast(100%);
+            }
+        }
+    }
+    .activity__summery__selectbox__wrapper {
+        width:138px;
+        .selectbox-selected-div {
+            height:35px !important;
+        }
+        @media(max-width:740px){
+            width:100%;
+        }
+    }
+    .incomming__outgoing__toggle{
+        border-radius:6px;
+        overflow: hidden;
+        display: flex;
+        @media(max-width:740px){
+            width:100%;
+        }
+        li {
+            background-color: #dde5ea;
+            cursor: pointer;
+            padding: 7px 15px;
+            cursor:pointer;
+            @media(max-width:740px){
+                flex-basis: 50%;
+                text-align: center;
+            }
+            &.active {
+                background-color: #000;
+                color:#fff;
+            }
+        }
+    }
+}
+
+.incomming__outgoing__toggle__outer {
+    @media(max-width:740px){
+        flex-basis: 100%;
+    }
+}

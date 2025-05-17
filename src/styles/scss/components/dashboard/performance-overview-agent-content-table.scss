@@ -1,0 +1,23 @@
+.Performance__Overview__Agent__Content__Table__outer {
+    @media(max-width:1720px){
+        overflow-x: scroll;
+     }
+    .Performance__Overview__Agent__Content__Table {
+        width:100%;
+        @media(max-width:1720px){
+            width:1720px;
+         }
+        tr {
+            td {
+                border-bottom: 1px solid #C3CEE9;
+                padding: 12px 10px !important;
+                &.incoming {
+                    color: #0FA779;
+                }
+                &.outgoing {
+                    color: #FF7E36;
+                }
+            }
+        }
+    }
+}
