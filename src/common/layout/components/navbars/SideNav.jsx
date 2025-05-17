@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import copy from 'copy-to-clipboard';
 import { Tooltip } from 'react-tooltip';
